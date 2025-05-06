@@ -14,9 +14,21 @@
 
 //Declarar da struct dados como variável global
 typedef struct {
-    int codigo;
-    char nome[50];
-    int idade;
-    char sexo;
+    int id, idade;
+    char nome[50], sexo;
     float salario;
+} Funcionario;
+
+int main() {
+    Funcionario f1;
+    f1.id = 1;
+    strcpy(f1.nome, "Maria");
+    f1.salario = 6000.0;
+
+    printf("ID: %d\n", f1.id);
+    printf("Nome: %s\n", f1.nome);
+    printf("Salário: %.2f\n", f1.salario);
+
+    return 0;
 }
+
