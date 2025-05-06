@@ -1,0 +1,7 @@
+const texto1 = "Oi";
+const texto2 = 'Oi';  
+const senha = "sep42007";
+const stringDeNumeros = "3467";
+
+const citacao = 'Izzy said "hi"';
+console.log(citacao)
