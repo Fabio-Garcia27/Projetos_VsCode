@@ -11,3 +11,12 @@
 #include <stdlib.h> 
 #include <math.h> 
 #include <time.h>
+
+//Declarar da struct dados como variável global
+typedef struct {
+    int codigo;
+    char nome[50];
+    int idade;
+    char sexo;
+    float salario;
+}
