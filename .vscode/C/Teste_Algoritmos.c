@@ -13,7 +13,8 @@
 #include <time.h>
 #include <conio.h>
 
-int A, X;
+// Declaração das variáveis usadas em todo o código
+int A, X, num1, num2, soma;
 float B, item, valor;
 char C;
 char D[100];
@@ -83,20 +84,32 @@ void ler_valores() {
      // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
     printf("\n");
 }
+// Fábio 07-05-25 - Uso da biblioteca, gerar número inteiro e defino pela "%f" ou %8.2f
 void biblioteca_C() {
     item = 10.12304;
     valor = 44.87321;
-    printf("%f", item);
-    printf("%8.2f", item);
-    printf("%8.2f", valor);
-    getch(); // para execução na tela
+    printf("Valor sem formatação: %f", item);
+    printf("Valor formatado: %8.2f", item);
+    printf("Outro valor formatado: %8.2f", valor);
+    getch(); // Pausa para ver o resultado
 }    
+// Fábio 07-05-25 - Soma e multiplicar
+void soma_multi_C() {
+    printf("Entre com o primeiro número: ");
+    scanf("%i", &num1);
+    printf("Entre com o segundo número: ");
+    scanf("%i", &num2);
+    soma = num1 + num2;
+    printf("A soma é: %d\n", soma);
+    getch(); // Pausa para ver o resultado
+} 
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
     imprimir_funcionario();
     imprimir_data_hora();
     ler_valores();
     biblioteca_C();
+    soma_multi_C();
 
     return 0;
 }
