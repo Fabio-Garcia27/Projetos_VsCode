@@ -14,15 +14,15 @@
 
 //Declarar da struct dados como variável global
 typedef struct {
-    int id, idade;
-    char nome[50], sexo;
-    float salario;
-} Funcionario;
+    int id, idade, A, X;
+    char nome[50], sexo, C, D[40];
+    float salario, B;
+} Funcionario; // Variável nome único, pode ser usado em vários definições, o novo tipo de dado criado com typedef e que representa a estrutura definida.
 // Função sem retorno
 void funcao_f() {
-    Funcionario f1;
+    Funcionario f1; 
     f1.id = 1;
-    strcpy(f1.nome, "Maria");
+    strcpy(f1.nome, "Maria"); // strcpy(): Copia uma string para outra.
     f1.salario = 6000.0;
 
     printf("ID: %d\n", f1.id);
@@ -43,10 +43,26 @@ void funcao_h() {
     strftime(buffer, sizeof(buffer), "%A, %d de %B de %Y %H:%M:%S", data_hora);
     printf("Data e Hora Formatadas: %s\n", buffer);
 }
+// Função sem retorno
+void funcao_t() {
+    puts("Entre com o 1 valor:");
+    scanf("%i",&A);
+    X = 2;
+    printf("Entre com %i valor:" , X);
+    scanf("%f", &B);
+    puts("Entre com o 3 valor:");
+    C = getche();
+    X = 4;
+    printf("Entre com o %d valor:", X);
+    gets(D);
+    printf("os valores informados foram: %i, %f, %c, %s", A, B, C, D);
+    getch(); //para axecução na tela
+}
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
     funcao_f();
     funcao_h();
+    funcao_t();
 
     return 0;
 }
