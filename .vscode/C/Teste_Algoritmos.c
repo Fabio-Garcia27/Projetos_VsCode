@@ -89,9 +89,13 @@ void biblioteca_C() {
     item = 10.12304;
     valor = 44.87321;
     printf("Valor sem formatação: %f", item);
+    // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
+    printf("\n");
     printf("Valor formatado: %8.2f", item);
+    printf("\n");
     printf("Outro valor formatado: %8.2f", valor);
     getch(); // Pausa para ver o resultado
+    printf("\n");
 }    
 // Fábio 07-05-25 - Soma e multiplicar
 void soma_multi_C() {
