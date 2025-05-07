@@ -14,9 +14,9 @@
 
 //Declarar da struct dados como variável global
 typedef struct {
-    int id, idade, A, X;
-    char nome[50], sexo, C, D[40];
-    float salario, B;
+    int id, idade;
+    char nome[50], sexo;
+    float salario;
 } Funcionario; // Variável nome único, pode ser usado em vários definições, o novo tipo de dado criado com typedef e que representa a estrutura definida.
 // Função sem retorno
 void funcao_f() {
@@ -45,18 +45,39 @@ void funcao_h() {
 }
 // Função sem retorno
 void funcao_t() {
-    puts("Entre com o 1 valor:");
-    scanf("%i",&A);
+    int A, X;
+    float B;
+    char C;
+    char D[100];
+    printf("Entre com o 1 valor (int): ");
+    scanf("%d",&A);
+     // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
+    printf("\n");
+
     X = 2;
-    printf("Entre com %i valor:" , X);
+    printf("Entre com O %i valor (float):" , X);
     scanf("%f", &B);
-    puts("Entre com o 3 valor:");
-    C = getche();
+    getchar(); // Consumir o newline deixado pelo scanf
+     // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
+    printf("\n");
+
+    printf("Entre com o 3 valor (char): ");
+    scanf("%c", &C);
+     // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
+    printf("\n");
+
     X = 4;
-    printf("Entre com o %d valor:", X);
-    gets(D);
-    printf("os valores informados foram: %i, %f, %c, %s", A, B, C, D);
-    getch(); //para axecução na tela
+    printf("Entre com o %d valor (string): ", X);
+    getchar(); // Consumir o newline deixado pelo scanf
+    fgets(D, sizeof(D), stdin);
+    D[strcspn(D, "\n")] = 0; // Remover o newline do final
+     // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
+    printf("\n");
+
+    printf("Os valores informados foram: %d, %2.f, %c, %s\n", A, B, C, D);
+    getchar(); 
+     // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
+    printf("\n");
 }
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
