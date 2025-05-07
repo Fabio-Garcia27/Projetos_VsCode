@@ -14,7 +14,7 @@
 #include <conio.h>
 
 int A, X;
-float B;
+float B, item;
 char C;
 char D[100];
 
@@ -83,11 +83,18 @@ void ler_valores() {
      // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
     printf("\n");
 }
+void biblioteca_C() {
+    item = 10.12304;
+    printf("%f", item);
+    printf("%0.2f", item);
+    getch(); // para execução na tela
+}    
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
     imprimir_funcionario();
     imprimir_data_hora();
     ler_valores();
+    biblioteca_C();
 
     return 0;
 }
