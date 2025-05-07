@@ -11,6 +11,7 @@
 #include <stdlib.h> 
 #include <math.h> 
 #include <time.h>
+#include <conio.h>
 
 int A, X;
 float B;

@@ -1,10 +1,11 @@
 // Fábio 30/05/25 - Código Dados dos Clientes 
 /*
-- stdio.h: entrada e saída de dadoscl
-- string.h: manipulação de strings
-- stdlib.h: alocação de memória, conversão de tipos, etc.
+- stdio.h: comandos de entrada e saída principais
+- string.h: manipulação de strings textos/frases/palavras
+- stdlib.h: comandos de entrada e saída conversão
 - math.h: funções matemáticas
 - time.h: funções de data e hora
+- conio.h: comandos de entrada e saída diversas
 */
 #include <stdio.h>
 #include <string.h>
