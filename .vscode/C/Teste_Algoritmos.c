@@ -14,7 +14,7 @@
 #include <conio.h>
 
 // Declaração das variáveis usadas em todo o código
-int A, X, num1, num2, num3, soma;
+int A, X, num1, num2, num3, soma, mediacalc;
 float B, item, valor, media;
 char C;
 char D[100];
@@ -99,6 +99,7 @@ void biblioteca_C() {
 }    
 // Fábio 07-05-25 - Soma e multiplicar
 void soma_multi_C() {
+    printf("\n");
     printf("Entre com o primeiro número: ");
     scanf("%i", &num1);
     printf("Entre com o segundo número: ");
@@ -106,6 +107,7 @@ void soma_multi_C() {
     soma = num1 + num2;
     printf("A soma é: %d\n", soma);
     getch(); // Pausa para ver o resultado
+    printf("\n");
 } 
 // Fábio 07-05-25 - Soma e multiplicar
 void calcular_media_C() {
@@ -115,9 +117,10 @@ void calcular_media_C() {
     scanf("%i", &num2);
     printf("Entre com o terceiro número: ");
     scanf("%i", &num3);
-    media = (num1 + num2 + num3) / 3;
-    printf("A média é: %d\n", media);
+    mediacalc = ((num1 + num2 + num3) / 3);
+    printf("A média é: %d\n", mediacalc);
     getch(); // Pausa para ver o resultado
+    printf("\n");
 }
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
