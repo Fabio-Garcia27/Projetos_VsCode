@@ -14,7 +14,7 @@
 #include <conio.h>
 
 int A, X;
-float B, item;
+float B, item, valor;
 char C;
 char D[100];
 
@@ -85,8 +85,10 @@ void ler_valores() {
 }
 void biblioteca_C() {
     item = 10.12304;
+    valor = 44.87321;
     printf("%f", item);
-    printf("%0.2f", item);
+    printf("%8.2f", item);
+    printf("%8.2f", valor);
     getch(); // para execução na tela
 }    
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
