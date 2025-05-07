@@ -12,14 +12,21 @@
 #include <math.h> 
 #include <time.h>
 
-//Declarar da struct dados como variável global
+int A, X;
+float B;
+char C;
+char D[100];
+
+//Declarar da struct dados das variáveis 
 typedef struct {
     int id, idade;
     char nome[50], sexo;
     float salario;
-} Funcionario; // Variável nome único, pode ser usado em vários definições, o novo tipo de dado criado com typedef e que representa a estrutura definida.
-// Função sem retorno
-void funcao_f() {
+} 
+
+Funcionario; // Variável nome único, pode ser usado em vários definições, o novo tipo de dado criado com typedef e que representa a estrutura definida.
+// void Função sem retorno
+void imprimir_funcionario() {
     Funcionario f1; 
     f1.id = 1;
     strcpy(f1.nome, "Maria"); // strcpy(): Copia uma string para outra.
@@ -29,8 +36,8 @@ void funcao_f() {
     printf("Nome: %s\n", f1.nome);
     printf("Salário: %.2f\n", f1.salario);  
 }
-// Função sem retorno
-void funcao_h() {
+
+void imprimir_data_hora() {
     time_t agora = time(NULL);
     struct tm *data_hora = localtime(&agora);
 
@@ -43,12 +50,8 @@ void funcao_h() {
     strftime(buffer, sizeof(buffer), "%A, %d de %B de %Y %H:%M:%S", data_hora);
     printf("Data e Hora Formatadas: %s\n", buffer);
 }
-// Função sem retorno
-void funcao_t() {
-    int A, X;
-    float B;
-    char C;
-    char D[100];
+
+void ler_valores() {
     printf("Entre com o 1 valor (int): ");
     scanf("%d",&A);
      // Fábio 06-05-25 - Resolver na execução 2 cliente em diante não concatenar
@@ -81,9 +84,9 @@ void funcao_t() {
 }
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
-    funcao_f();
-    funcao_h();
-    funcao_t();
+    imprimir_funcionario();
+    imprimir_data_hora();
+    ler_valores();
 
     return 0;
 }
