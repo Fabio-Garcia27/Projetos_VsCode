@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
-int main(){
-   double num1, num2;
+int num1, num2, soma;
 
-   printf("Enter the first number");
-   scanf("%lf", &num1);
 
+int main(void){
+   printf("Enter the first number:");
+   scanf("%if", &num1);
    printf("Enter the second number");
-   scanf("%lf", &num2);
-
-   double sum = num1 + num2;
-
-   printf("The sum of %.2lf and %.2lf is %.2lf\n", num1, num2, sum);
-
+   scanf("%if", &num2);
+   soma = num1 + num2;
+   printf("Somat�ria = %i", soma);
+   getch();
    return 0;
  }
