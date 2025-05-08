@@ -30,6 +30,7 @@ int comparacao() {
     x = 3;
         if (x == 2) {
             printf("X é igual a 2");
+            // Usar getchar() quando precisar parar a informação na tela
             getchar();
         } else if (x > 2) {
             printf("X é maior que 2");
