@@ -21,7 +21,7 @@
 #include <unistd.h>
 
 // Declaração das variáveis usadas em todo o código
-int x, dia;
+int x, dia, opc, n1 = 2, n2 = 3, n3;
 float b;
 char c;
 /*                
@@ -86,10 +86,31 @@ int comparacao_m() {
     //getchar(); // Adicione essa linha também, pois o scanf deixa um caractere no buffer
 }
 
+int opc_c(){
+    printf("Entre com o valor 1 ou 2");
+    scanf("%i", &opc);
+
+    switch (opc) {
+        case 1: 
+            {n3 = n1 + n2;
+             break;}
+        case 2:
+            {n3 = n1 - n2;
+             break;}        
+        default:
+            printf("Opção inválida\n");
+            return 1;
+    }
+    printf("O resultado é: %i", n3);
+    getchar();
+    getchar(); // Para pausar a tela
+}
+
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
     comparacao();
     comparacao_m();
+    opc_c();
     return 0;
     //imprimir_funcionario();
     //imprimir_data_hora();
