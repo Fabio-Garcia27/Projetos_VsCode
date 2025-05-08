@@ -21,9 +21,9 @@
 #include <unistd.h>
 
 // Declaração das variáveis usadas em todo o código
-int x, dia, opc, n1 = 2, n2 = 3, n3;
+int x, dia, opc, n1 = 2, n2 = 3, n3, valor;
 float b;
-char c;
+char c, ocp_w, sexo;
 /*                
 //Declarar da struct dados das variáveis 
 typedef struct {
@@ -32,6 +32,7 @@ typedef struct {
     float salario;
 } 
 */    
+/*
 // Fábio 07/05/25 - Estrutura Condicional Simples e Composta
 int comparacao() {
     x = 3;
@@ -85,9 +86,9 @@ int comparacao_m() {
     //getchar(); // Adicione essa linha
     //getchar(); // Adicione essa linha também, pois o scanf deixa um caractere no buffer
 }
-
+// Fábio 08/05/2025 opc int
 int opc_c(){
-    printf("Entre com o valor 1 ou 2");
+    printf("Entre com o valor 1 ou 2: ");
     scanf("%i", &opc);
 
     switch (opc) {
@@ -106,11 +107,93 @@ int opc_c(){
     getchar(); // Para pausar a tela
 }
 
+// Fábio 08/05/2025 opc int char
+// getchar(); aguarda o Enter e getche(); não precisa do enter
+int opc_w(){
+    printf("Entre com um operador: ");
+    opc = getche();
+
+    switch (opc) {
+        case '+': 
+            {n3 = n1 + n2;
+             break;}
+        case  '-':
+            {n3 = n1 - n2;
+             break;}        
+        default:
+            {n3 = n1 * n2;};    
+    }
+    printf("O resultado é: %i", n3);
+    getchar();
+    getchar(); // Para pausar a tela
+}
+
+// Fábio 08/05/2025 comparação entre valores
+int comparacao_entre(){
+    printf("Entre com um valor: ");
+    scanf("%i", &valor);
+
+    switch (valor) {
+        case 1: { 
+            printf("Valor 1");
+            break;
+        } 
+        case 2:{
+            printf("Valor 2");
+            break;    
+        }    
+        case 3 ... 5:{
+            printf("Valor entre 3 a 5");
+            break; 
+        }    
+        default:{
+            printf("Outro valor...");   
+            break;
+        }     
+    }
+    getchar();
+    getchar(); // Para pausar a tela
+}
+*/       
+// Fábio 08/05/2025 comparação entre sexo
+int comparacao_sexo(){
+    printf("Entre com o sexo: ");
+    sexo = getche();
+
+    switch (sexo) {
+        case 'f':{
+            printf(" feminino");
+            break;
+        } 
+        case 'F':{
+            printf(" Feminino");
+            break;    
+        }    
+        case 'm':{
+            printf(" masculino");
+            break; 
+        } 
+        case 'M':{
+            printf(" Masculino");
+            break; 
+        }               
+        default:{
+            printf(" Outro...");   
+            break;
+        }     
+    }
+    getchar(); // Para pausar a tela
+}
+
+
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
-    comparacao();
-    comparacao_m();
-    opc_c();
+    //comparacao();
+    //comparacao_m();
+    //opc_c();
+    //opc_w();
+    //comparacao_entre();
+    comparacao_sexo();
     return 0;
     //imprimir_funcionario();
     //imprimir_data_hora();
