@@ -1,4 +1,4 @@
-// Fábio 06/05/25 - Código Teste Algoritmos
+// Fábio 07/05/25 - Código Teste Algoritmos Estrutura Condicional Simples - Composta - Multriplas
 /*
 - stdio.h: entrada e saída de dadoscl
 - string.h: manipulação de strings
@@ -14,18 +14,48 @@
 #include <conio.h>
 
 // Declaração das variáveis usadas em todo o código
-int A, X, num1, num2, num3, soma, mediacalc;
-float B, item, valor, media;
-char C;
-char D[100];
-                
+int x;
+float b;
+char c;
+/*                
 //Declarar da struct dados das variáveis 
 typedef struct {
     int id, idade;
     char nome[50], sexo;
     float salario;
 } 
+*/    
+// Fábio 07/05/25 - Estrutura Condicional Simples
+int comparacao() {
+    x = 3;
+        if (x == 2) {
+            printf("X é igual a 2");
+            getchar();
+        } else if (x > 2) {
+            printf("X é maior que 2");
+            getchar();
+        } else {
+            printf("X é menor que 2");
+            getchar();
+        }
+}
 
+// É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
+int main() {
+    comparacao();
+    return 0;
+    //imprimir_funcionario();
+    //imprimir_data_hora();
+    //ler_valores();
+    //biblioteca_C();
+    //soma_multi_C();
+    //calcular_media_C();
+}
+
+
+
+
+/*
 Funcionario; // Variável nome único, pode ser usado em vários definições, o novo tipo de dado criado com typedef e que representa a estrutura definida.
 // void Função sem retorno
 void imprimir_funcionario() {
@@ -122,17 +152,8 @@ void calcular_media_C() {
     getch(); // Pausa para ver o resultado
     printf("\n");
 }
-// É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
-int main() {
-    imprimir_funcionario();
-    imprimir_data_hora();
-    ler_valores();
-    biblioteca_C();
-    soma_multi_C();
-    calcular_media_C();
+*/
 
-    return 0;
-}
 
 
 
