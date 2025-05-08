@@ -5,6 +5,12 @@
 - stdlib.h: alocação de memória, conversão de tipos, etc.
 - math.h: funções matemáticas
 - time.h: funções de data e hora
+- conio.h: comandos de entrada e saída diversas
+- unistd.h: 
+- sleep(): Faz com que o programa aguarde um determinado período de tempo (em segundos).
+- usleep(): Faz com que o programa aguarde um determinado período de tempo (em microssegundos).
+- fork(): Cria um novo processo.
+- pipe(): Cria um pipe para comunicação entre processos.
 */
 #include <stdio.h>
 #include <string.h>
@@ -12,9 +18,10 @@
 #include <math.h> 
 #include <time.h>
 #include <conio.h>
+#include <unistd.h>
 
 // Declaração das variáveis usadas em todo o código
-int x;
+int x, dia;
 float b;
 char c;
 /*                
@@ -25,7 +32,7 @@ typedef struct {
     float salario;
 } 
 */    
-// Fábio 07/05/25 - Estrutura Condicional Simples
+// Fábio 07/05/25 - Estrutura Condicional Simples e Composta
 int comparacao() {
     x = 3;
         if (x == 2) {
@@ -40,10 +47,49 @@ int comparacao() {
             getchar();
         }
 }
+// Fábio 07/05/25 - Estrutura Condicional Mulipla Escolha 
+int comparacao_m() {
+
+    printf("Digite o número do dia da semana (1-7): ");
+    scanf("%d", &dia);
+
+    switch (dia) {
+        case 1:
+            printf("Segunda-feira\n");
+            break;
+        case 2:
+            printf("Terça-feira\n");
+            break;
+        case 3:
+            printf("Quarta-feira\n");
+            break;
+        case 4:
+            printf("Quinta-feira\n");
+            break;
+        case 5:
+            printf("Sexta-feira\n");
+            break;
+        case 6:
+            printf("Sábado\n");
+            break;
+        case 7:
+            printf("Domingo\n");
+            break;
+        default:
+            printf("Dia inválido\n");
+            break;            
+    }
+      printf("A tela fechará em 5 segundos...\n");
+      sleep(5); // Aguarde 5 segundos
+    //printf("Pressione uma tecla para continuar...");
+    //getchar(); // Adicione essa linha
+    //getchar(); // Adicione essa linha também, pois o scanf deixa um caractere no buffer
+}
 
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
     comparacao();
+    comparacao_m();
     return 0;
     //imprimir_funcionario();
     //imprimir_data_hora();

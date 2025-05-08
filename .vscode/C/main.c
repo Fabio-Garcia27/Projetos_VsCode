@@ -5,6 +5,12 @@
 - stdlib.h: alocação de memória, conversão de tipos, etc.
 - math.h: funções matemáticas
 - time.h: funções de data e hora
+- conio.h: comandos de entrada e saída diversas
+- unistd.h: 
+- sleep(): Faz com que o programa aguarde um determinado período de tempo (em segundos).
+- usleep(): Faz com que o programa aguarde um determinado período de tempo (em microssegundos).
+- fork(): Cria um novo processo.
+- pipe(): Cria um pipe para comunicação entre processos.
 */
 #include <stdio.h>
 #include <string.h>
@@ -12,6 +18,8 @@
 #include <math.h> 
 #include <time.h>
 #include <conio.h>
+#include <unistd.h>
+
 
 // Declaração das variáveis usadas em todo o código
 int num1, num2, num3, media;

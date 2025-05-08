@@ -6,6 +6,11 @@
 - math.h: funções matemáticas
 - time.h: funções de data e hora
 - conio.h: comandos de entrada e saída diversas
+- unistd.h: 
+- sleep(): Faz com que o programa aguarde um determinado período de tempo (em segundos).
+- usleep(): Faz com que o programa aguarde um determinado período de tempo (em microssegundos).
+- fork(): Cria um novo processo.
+- pipe(): Cria um pipe para comunicação entre processos.
 */
 #include <stdio.h>
 #include <string.h>
