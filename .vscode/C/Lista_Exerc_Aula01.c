@@ -1,17 +1,17 @@
-// Fábio 06/05/25 - Código Teste Algoritmos
+// FÃ¡bio 06/05/25 - CÃ³digo Teste Algoritmos
 /*
-- stdio.h: entrada e saí­da de dados
-- string.h: manipulação de strings
-- stdlib.h: alocação de memória, conversão de tipos, etc.
-- math.h: funções matemáticas
-- time.h: funções de data e hora
-- conio.h: comandos de entrada e saí­da diversas
+- stdio.h: entrada e saÃ­da de dados
+- string.h: manipulaÃ§Ã£o de strings
+- stdlib.h: alocÃ§Ã£o de memï¿½ria, conversÃ£o de tipos, etc.
+- math.h: funÃ§Ãµes matemÃ¡ticas
+- time.h: funÃ§Ãµes de data e hora
+- conio.h: comandos de entrada e saÃ¡da diversas
 - unistd.h: 
-- sleep(): Faz com que o programa aguarde um determinado perí­odo de tempo (em segundos).
-- usleep(): Faz com que o programa aguarde um determinado perí­odo de tempo (em microssegundos).
+- sleep(): Faz com que o programa aguarde um determinado perÃ­odo de tempo (em segundos).
+- usleep(): Faz com que o programa aguarde um determinado perÃ­odo de tempo (em microssegundos).
 - fork(): Cria um novo processo.
-- pipe(): Cria um pipe para comunicação entre processos.
-- locale.h: Localidade do programa, definindo como os dados de texto e numéricos devem ser tratados.
+- pipe(): Cria um pipe para comunicaÃ§Ã£o entre processos.
+- locale.h: Localidade do programa, definindo como os dados de texto e numÃ©ricos devem ser tratados.
 */
 #include <stdio.h>
 #include <string.h>
@@ -23,70 +23,70 @@
 #include <locale.h>
 
 
-// Declaração das variáveis usadas em todo o código
+// DeclaraÃ§Ã£o das variÃ¡veis usadas em todo o cÃ³digo
 int num1, num2, num3, mediacalc, opcao;
 float qlt, prelit, pretot, z, l, a, c;
                 
 
-// Fábio 09-05-25 - Resultado méia de 3 valores
+// FÃ¡bio 06/05/25 - Resultado mÃ©ia de 3 valores
 int calcular_media() {
-    printf("Entre com o primeiro número: ");
+    printf("Entre com o primeiro nÃºmero: ");
     scanf("%i", &num1);
-    printf("Entre com o segundo número: ");
+    printf("Entre com o segundo nÃºmero: ");
     scanf("%i", &num2);
-    printf("Entre com o terceiro número: ");
+    printf("Entre com o terceiro nÃºmero: ");
     scanf("%i", &num3);
     mediacalc = ((num1 + num2 + num3) / 3);
-    printf("A média: %d\n00E1", mediacalc);
+    printf("A mÃ©dia: %d\n00E1", mediacalc);
     getch(); // Pausa para ver o resultado
     printf("\n");
     return 0;    
 }  
 
-// Fábio 09-05-25 - Identificar tipo do combustí­vel, preço do litro e valor pago
+// FÃ¡bio 06/05/25 - Identificar tipo do combustÃ­vel, preÃ§o do litro e valor pago
 int preco_comb() {
-        printf("Tipos de Combustível:\n");
+        printf("Tipos de CombustÃ­vel:\n");
         printf("1. Gasolina\n");
         printf("2. Etanol\n");
         printf("3. Diesel\n");
-        printf("4. Gás Natural\n");
+        printf("4. GÃ¡s Natural\n");
         printf("5. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opÃ§Ã£o: ");
         scanf("%d", &opcao);
         if (opcao < 1 || opcao > 5) {
-            printf("Opção inválida:\n");
+            printf("OpÃ§Ã£o invÃ¡lida:\n");
             return 1;
         }
         printf("\n");
 
-        printf("Entre com o valor do litro do combustível escolhido: ");
+        printf("Entre com o valor do litro do combustÃ­vel escolhido: ");
         scanf("%f", &prelit);
         printf("\n");
     
-        printf("Entre com o valor total, que será abastecido em reais: ");
+        printf("Entre com o valor total, que serÃ¡ abastecido em reais: ");
         scanf("%f", &pretot);
         printf("\n");
 
         qlt = pretot / prelit;
-        printf("Total de litros de combustível foi no abastecimento: %.2f\n", qlt);
+        printf("Total de litros de combustÃ­vel foi no abastecimento: %.2f\n", qlt);
         getch(); // Pausa para ver o resultado
         printf("\n");
         return 0;        
 }  
 
-// Fábio 09-05-25 - Encontrar valor de Z na formula
+// FÃ¡bio 06/05/25 - Encontrar valor de Z na formula
 int calcular_formula() {
-    printf("Entre com o primeiro número L: ");
+    printf("Entre com o primeiro nÃºmero L: ");
     scanf("%f", &l);
-    printf("Entre com o segundo número A: ");
+    printf("Entre com o segundo nÃºmero A: ");
     scanf("%f", &a);
-    printf("Entre com o terceiro número C: ");
+    printf("Entre com o terceiro nÃºmero C: ");
     scanf("%f", &c);
     if (c != 0){
         z = ((l + a) * 2) / c;
          printf("O valor de Z: %f\n", z);
     } else {
-       printf("Erro: Não pode ser zero!\n");
+       printf("Erro: NÃ£o pode ser zero!\n");
     }
     
     getch(); // Pausa para ver o resultado
@@ -94,9 +94,9 @@ int calcular_formula() {
     return 0;    
 }  
 
-// Fábio 09-05-25 - É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
+// FÃ¡bio 06/05/25 - Ã‰ o ponto de entrada do programa, onde a execuÃ§Ã£o comeÃ§a quando o programa Ã© iniciado
 int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para PortuguÃªs (Brasil) UTF-8
     calcular_media();
     preco_comb();
     calcular_formula();

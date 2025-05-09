@@ -11,6 +11,7 @@
 - usleep(): Faz com que o programa aguarde um determinado período de tempo (em microssegundos).
 - fork(): Cria um novo processo.
 - pipe(): Cria um pipe para comunicação entre processos.
+- locale.h: Localidade do programa, definindo como os dados de texto e numéricos devem ser tratados.
 */
 #include <stdio.h>
 #include <string.h>
@@ -19,6 +20,7 @@
 #include <time.h>
 #include <conio.h>
 #include <unistd.h>
+#include <locale.h>
 
 // Declaração das variáveis usadas em todo o código
 int x, dia, opc, n1 = 2, n2 = 3, n3, valor;
@@ -188,6 +190,7 @@ int comparacao_sexo(){
 
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     //comparacao();
     //comparacao_m();
     //opc_c();

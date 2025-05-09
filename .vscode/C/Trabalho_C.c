@@ -1,19 +1,28 @@
 // Fábio 30/05/25 - Código Dados dos Clientes 
 /*
-- stdio.h: comandos de entrada e saída principais
-- string.h: manipulação de strings textos/frases/palavras
-- stdlib.h: comandos de entrada e saída conversão
+/*
+- stdio.h: entrada e saí­da de dados
+- string.h: manipulação de strings
+- stdlib.h: alocação de memória, conversão de tipos, etc.
 - math.h: funções matemáticas
 - time.h: funções de data e hora
-- conio.h: comandos de entrada e saída diversas
+- conio.h: comandos de entrada e saí­da diversas
 - unistd.h: 
-- sleep(): Faz com que o programa aguarde um determinado período de tempo (em segundos).
-- usleep(): Faz com que o programa aguarde um determinado período de tempo (em microssegundos).
+- sleep(): Faz com que o programa aguarde um determinado perí­odo de tempo (em segundos).
+- usleep(): Faz com que o programa aguarde um determinado perí­odo de tempo (em microssegundos).
 - fork(): Cria um novo processo.
 - pipe(): Cria um pipe para comunicação entre processos.
+- locale.h: Localidade do programa, definindo como os dados de texto e numéricos devem ser tratados.
 */
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h> 
+#include <math.h> 
+#include <time.h>
+#include <conio.h>
+#include <unistd.h>
+#include <locale.h>
+
 
 // Fábio 30/05/25 - Declaração da struct dados como variável global
 typedef struct {
@@ -73,6 +82,7 @@ int calculaSomatoriaSalario(dados *cliente) {
 }
 
 int main() {
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     // Fábio 30/05/25 - Entrada de dados para os 5 clientes
     for (int i = 0; i < 5; i++) {
         printf("Digite o código do cliente %d: ", i + 1);
