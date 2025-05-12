@@ -23,82 +23,43 @@
 #include <locale.h>
 
 // Declaração das variáveis usadas em todo o código
-int x, i, y, z;
+int vet[8], i, soma = 0, x;
 char s[50],nome[50]; 
 
                 
-// Fábio 12/05/25 - Resultado Vetor
-int func_vetor(){
-    x = 1;
-    y = 6;
-    while (x < y){
-           printf("%d\n", x);
-           x = x + 1;
-    }
-    printf("Terminou o Enquanto\n");
-    printf("Pressione Enter para continuar...\n");
-    getch(); // Pausa para ver o resultado
-    return 0;
-}
-/*
-int func_1_while(){
-    x = 1;
-    y = 5;
-    while (x <= y){
-           printf("%d\n", x);
-           x++;
-    }
-    printf("Terminou o Enquanto\n");
-    printf("Pressione Enter para continuar...\n");
-    getch(); // Pausa para ver o resultado
-    return 0;
-}
-
-int func_2_while(){
-    x = 's';
-    while ((x == 'S') || (x == 's')) {
-           printf("Entre com um nome ");
-           fflush(stdin); // Limpa o buffer de entrada
-           gets(nome); // Lê a entrada do usuário
-           printf("O nome é %s", nome);
-           printf("\n");
-           printf("Deseja novo cadastro ? ");
-           fflush(stdin);
-           x = getch();
-           printf("\n");
-           printf("Pressione Enter para encerrar...\n");   
-           return 0;        
-    }
-}
-
-// Fábio 12/05/25 - Resultado do e while Faca Enquanto
-int func_do_while(){
-    do {
+// Fábio 12/05/25 - Resultado Vetor, posição do vetor começa na posição zero e soma total de todos vetores
+int func_vetor() {
+    for (i = 0; i <= 7; i++) {
         printf("Entre com um valor: ");
-        scanf("%d", &z);
-        getchar(); // Consumir o caractere de nova linha
-        printf("%d\n", z * 3);
-    } while (z != 0);
+        scanf("%d", &vet[i]); // Leia o valor inteiro
+        soma = soma + vet[i]; // Some o valor ao total
+    }
+    printf("A soma do vetor: %d\n", soma);
+    printf("Pressione Enter para encerrar...\n");
+    getchar(); // Leia o caractere de nova linha
+    getchar(); // Pause para ver o resultado
+    return 0;
 }
 
-int func_1_do_while(){
-    do {
-        printf("Entre com um nome: ");
-        fflush(stdin); // Limpa o buffer de entrada
-        gets(nome); // Lê a entrada do usuário        
-        printf("O nome é %s", nome);
-        printf("Deseja novo cadastro?" );
-        printf("\n");
-        fflush(stdin); // Limpa o buffer de entrada
-        gets(nome); // Lê a entrada do usuário   
-        x = getch();
-    } while ((x != 'n') && (x != 'N'));
+// Fábio 12/05/25 - Resultado Vetor, posição do vetor começa na posição zero e a soma vai estar na posição 8
+int func_1_vetor() {
+    vet[8] = 0;
+    for (i = 0; i <= 8; i++) {
+        printf("Entre com um valor: ");
+        scanf("%d", &vet[i]); // Leia o valor inteiro
+    }
+    printf("A soma do vetor: %d\n", vet[8]);
+    printf("Pressione Enter para encerrar...\n");
+    getchar(); // Leia o caractere de nova linha
+    getchar(); // Pause para ver o resultado
+    return 0;
 }
-*/
+
 // Fábio 06/05/25 - É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     func_vetor();
+    func_1_vetor();
 
     return 0;
 }
