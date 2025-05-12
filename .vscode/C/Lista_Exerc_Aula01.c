@@ -2,7 +2,7 @@
 /*
 - stdio.h: entrada e saída de dados
 - string.h: manipulação de strings
-- stdlib.h: alocção de mem�ria, conversão de tipos, etc.
+- stdlib.h: alocção de memria, conversão de tipos, etc.
 - math.h: funções matemáticas
 - time.h: funções de data e hora
 - conio.h: comandos de entrada e saáda diversas
