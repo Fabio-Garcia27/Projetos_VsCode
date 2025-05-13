@@ -41,22 +41,21 @@ int numero;
 
 int func_par_impar(){
     printf("Digite um número: ");
-    getchar(); // Adicione essa linha
+    scanf("%d", &numero);
+    getchar(); // Para consumir o caractere newline deixado pelo scanf
 
     if (numero % 2 == 0) {
         printf("%d é par\n", numero);
-        getchar();
     } else {
         printf("%d é ímpar\n", numero);
-        getchar();
     }
     printf("Pressione uma tecla para encerrar...");
     getchar(); // Adicione essa linha também, pois o scanf deixa um caractere no buffer
+    return 0;
 }    
 
 int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8    
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil)
     func_par_impar();
-
     return 0;
 }
