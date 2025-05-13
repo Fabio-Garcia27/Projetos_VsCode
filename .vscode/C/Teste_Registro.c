@@ -35,10 +35,11 @@ struct Cliente {
     float sal;
     char nome[80], ender[100];
 } cli[10];
+
+    int i;
                
 // Fábio 12/05/25 - Resultado Vetor, posição do vetor começa na posição zero e soma total de todos vetores
 int func_registro() {
-    int i;
     conta[0].num = 4;
     conta[0].saldo = 90.00;
     strcpy(conta[0].titular, "Maria");
@@ -62,7 +63,6 @@ int func_registro() {
 
 // Fábio 12/05/25 - Resultado Vetor, posição do vetor começa na posição zero e soma total de todos vetores
 int func_1_registro() {
-    int i;
     for (i = 0; i <= 9; i++) {
         printf("Digite o código: ");
         scanf("%d", &cli[i].cod);
