@@ -29,15 +29,9 @@ Por exemplo:
 */
 
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h> 
-#include <math.h> 
-#include <time.h>
-#include <conio.h>
-#include <unistd.h>
 #include <locale.h>
 
-int numero;
+int numero, numero1, numero2, maior;
 
 int func_par_impar(){
     printf("Digite um número: ");
@@ -45,17 +39,37 @@ int func_par_impar(){
     getchar(); // Para consumir o caractere newline deixado pelo scanf
 
     if (numero % 2 == 0) {
-        printf("%d é par\n", numero);
+        printf("%d é par \n", numero);
     } else {
-        printf("%d é ímpar\n", numero);
+        printf("%d é ímpar \n", numero);
     }
     printf("Pressione uma tecla para encerrar...");
     getchar(); // Adicione essa linha também, pois o scanf deixa um caractere no buffer
     return 0;
 }    
 
+int func_ternario(){
+    printf("Digite um número: ");
+    scanf("%d", &numero1);
+    getchar(); // Para consumir o caractere newline deixado pelo scanf
+    printf("Digite outro número: ");
+    scanf("%d", &numero2);
+    getchar(); // Para consumir o caractere newline deixado pelo scanf
+    if (numero1 > numero2) {
+        maior = numero1;
+    }else { 
+        maior = numero2;
+    }
+    printf("Maior: %d \n", maior );
+    printf("Pressione uma tecla para encerrar...");
+    getchar(); // Para consumir o caractere newline deixado pelo scanf
+    return 0;
+}
+
+
 int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil)
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     func_par_impar();
+    func_ternario();
     return 0;
 }

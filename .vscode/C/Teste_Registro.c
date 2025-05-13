@@ -102,7 +102,7 @@ int func_1_registro() {
 }
 
 int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil.1252");
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-
     func_registro();
     func_1_registro();
     return 0;
