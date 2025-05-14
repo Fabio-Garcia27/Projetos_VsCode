@@ -23,12 +23,12 @@
 #include <locale.h>
 
 // Declaração de Variáveis
-
-#define MAX_ALUNOS 50 
-#define MAX_GAVETAS 10
+int i;
 
 //Fábio 13/05/2025 - Teste em C Vetor Guia Didático Alunos numa turma
+
 int func_vetor(){
+    #define MAX_ALUNOS 50 
     int tamanhoTurma;
     float notas[MAX_ALUNOS] = {0}; // Inicializa o array de votos com zeros
     float somaNotas = 0; // Total de votos
@@ -39,25 +39,19 @@ int func_vetor(){
     getchar();
 
     // Verifica se o tamanho da turma é válido
-    // Se for 0, cancelar
-    if (tamanhoTurma == 0){
-        printf("Tamanho da turma inválido.\n");
-        return 1;
-    }
-
     while (tamanhoTurma < 1 || tamanhoTurma > MAX_ALUNOS) {
         printf("Tamanho da turma inválido. Digite um valor entre 1 e %d: ", MAX_ALUNOS);
         scanf("%d", &tamanhoTurma);
         getchar();
+        getchar();
     }
 
     // Lê as notas dos alunos
-    for (int i = 0; i < tamanhoTurma; i++) {
+    for (i = 0; i < tamanhoTurma; i++) {
         printf("Digite a nota do aluno %d: ", i + 1);
         scanf("%f", &notas[i]);
         getchar();
         somaNotas += notas[i];
-
     }
 
     // Calcula a média da turma
@@ -65,22 +59,33 @@ int func_vetor(){
 
     printf("Média da turma: %.2f\n", mediaTurma);
     getchar();
-
     return 0;
 } 
 
 //Fábio 13/05/2025 - Teste em C Vetor Correio Cartas
 int func_vet_correio(){
+    #define MAX_GAVETAS 10
     char gavetas[MAX_GAVETAS][4]; // "sim" ou "não"
-    int gavetaNumero = 8;
+    int gavetaNumero;
+
+    printf("Digite o número da gaveta que deseja verificar (1 a %d): ", MAX_GAVETAS);
+    scanf("%d", &gavetaNumero);
+    getchar();
+
+    // Verifica se a gaveta é válida
+    while (gavetaNumero < 1 || gavetaNumero > MAX_GAVETAS) {
+           printf("Gaveta inválida. Digite um número entre 1 e %d: ", MAX_GAVETAS);
+           scanf("%d", &gavetaNumero);
+           getchar();
+    }
 
     // Inicializa as gavetas como vazias
-    for (int i = 0; i < MAX_GAVETAS; i++) {
+    for (i = 0; i < MAX_GAVETAS; i++) {
         strcpy(gavetas[i], "não");
     }
 
     // Simula a inserção de cartas em algumas gavetas
-    strcpy(gavetas[8], "sim"); // Gaveta 8 tem carta
+    strcpy(gavetas[gavetaNumero - 1], "sim"); // Gaveta 8 tem carta
 
     // Verifica se a gaveta 8 tem carta
     if (strcmp(gavetas[gavetaNumero - 1], "sim") == 0) {
@@ -89,7 +94,10 @@ int func_vet_correio(){
         printf("Não existe carta na gaveta %d\n", gavetaNumero);
     }
 
-    return 0; 
+    printf("Pressione uma tecla para continuar...");
+    getchar(); 
+
+    return 0;
 }
 
 int main() {
