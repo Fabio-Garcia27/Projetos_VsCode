@@ -94,7 +94,6 @@ int func_compras(){
          printf("Digite a qtd do item %d: ", i + 1);
          scanf("%d",&qtd);
          getch();
-         getch();
          printf("Digite o valor por unidade do item %d: ", i + 1);
          scanf("%f",&valor);
          getch();
@@ -102,7 +101,8 @@ int func_compras(){
 
          soma = (soma + (qtd * valor));
     }
-        printf("Valor total da compra: R$ %.2fn",soma);
+        printf("Valor total da compra: R$ %.2f \n",soma);
+        getch();
         return 0;
 }
 
