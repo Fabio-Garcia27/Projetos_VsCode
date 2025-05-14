@@ -22,7 +22,9 @@
 #include <unistd.h>
 #include <locale.h>
 
-int i, n;
+// Declaração de Variáveis
+int i, n, qtd, numero, contador, resultado;
+float valor, soma;
 
 #define MAX_OPCOES 6 
 
@@ -33,19 +35,19 @@ int func_opcoes(){
     char *opcoes[] = {"Windows Server", "Unix", "Linux", "Netware", "Mac OS", "Outro"};
 
     printf("Enquete: Qual o melhor sistema operacional para uso em servidores?\n ");
-    printf("1- Windows Server\n");
-    printf("2- Unix\n");
-    printf("3- Linux\n");
-    printf("4- Netware\n");
-    printf("5- Mac OS\n");
-    printf("6- Outro\n");
+    printf("1- Windows Server \n ");
+    printf("2- Unix \n ");
+    printf("3- Linux \n ");
+    printf("4- Netware \n ");
+    printf("5- Mac OS \n ");
+    printf("6- Outro \n ");
 
     while (1) {
         printf("Digite a opção escolhida (0 para sair): ");
         scanf("%d", &opcao);
    
         if (opcao == 0) {
-            printf("Nao existe opcao 0..." );
+            //printf("Nao existe opcao 0..." );
             break; // Sai do loop se o usuário digitar 0
         }
 
@@ -57,12 +59,13 @@ int func_opcoes(){
         }
     }
 
-    printf("\nResultados:\n");
+    printf("Resultados: \n");
+    printf("\n");
     getch();
 
     for (int i = 0; i < MAX_OPCOES; i++) {
         float percentual = (float)votos[i] / total_votos * 100;
-        printf("%s: %d votos (%.2f%%)\n", opcoes[i], votos[i], percentual);
+        printf("%s: %d votos (%.2f%%) \n", opcoes[i], votos[i], percentual);
         getchar();
     }
 
@@ -70,8 +73,7 @@ int func_opcoes(){
 }  
 
 int num_tabuada(){
-    int numero, contador, resultado;
-    printf("Qual a tabuada de multiplicar você quer saber");
+    printf("Qual a tabuada de multiplicar você quer saber: ");
     scanf("%d", &numero);
     getch();
     contador = 1;
@@ -85,11 +87,31 @@ int num_tabuada(){
         return 0; 
 }
 
+int func_compras(){
+    soma = 0;
+    printf("Lista de Compras \n");
+    for (i = 0; i < 6; i++) {
+         printf("Digite a qtd do item %d: ", i + 1);
+         scanf("%d",&qtd);
+         getch();
+         getch();
+         printf("Digite o valor por unidade do item %d: ", i + 1);
+         scanf("%f",&valor);
+         getch();
+         getch();
+
+         soma = (soma + (qtd * valor));
+    }
+        printf("Valor total da compra: R$ %.2fn",soma);
+        return 0;
+}
+
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     
     func_opcoes();
     num_tabuada();
+    func_compras();
    
     return 0;
 }
