@@ -58,7 +58,8 @@ int func_vetor(){
     mediaTurma = somaNotas / tamanhoTurma;
 
     printf("Média da turma: %.2f\n", mediaTurma);
-    getchar();
+    printf("Pressione uma tecla para continuar...");
+    getchar(); 
     return 0;
 } 
 
@@ -96,7 +97,43 @@ int func_vet_correio(){
 
     printf("Pressione uma tecla para continuar...");
     getchar(); 
+    return 0;
+}
 
+int func_voos(){
+    #define MAX_VOOS 5
+    int numeroVoo[MAX_VOOS];
+    int duracaoVoo[MAX_VOOS];
+    int quantidadeVoos;
+
+    printf("Digite a quantidade de voos (entre 1 e %d): ", MAX_VOOS);
+    scanf("%d", &quantidadeVoos);
+    getchar();
+
+    // Verifica se a quantidade de voos é válida
+    while (quantidadeVoos < 1 || quantidadeVoos > MAX_VOOS) {
+           printf("Quantidade de voos inválida. Digite um número entre 1 e %d: ", MAX_VOOS);
+           scanf("%d", &quantidadeVoos);
+           getchar();
+    } 
+
+    // Lê as informações dos voos
+    for (i = 0; i < MAX_VOOS; i++) {
+        printf("Digite o número do voo %d: ", i + 1);
+        scanf("%d", &numeroVoo[i]);
+        getchar();
+        printf("Digite a duração do voo %d (em minutos): ", i + 1);
+        scanf("%d", &duracaoVoo[i]);
+        getchar();
+    }
+
+    // Imprime as informações dos voos
+    printf("\nLista de Voos\n");
+    for (i = 0; i < MAX_VOOS; i++) {
+        printf("Voo %d: Número %d - Duração: %d minutos\n", i + 1, numeroVoo[i], duracaoVoo[i]);
+    }
+    printf("Pressione uma tecla para encerrar...");
+    getchar(); 
     return 0;
 }
 
@@ -104,5 +141,6 @@ int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     func_vetor();
     func_vet_correio();
+    func_voos();
     return 0;
 }
