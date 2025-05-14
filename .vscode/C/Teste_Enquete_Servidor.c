@@ -67,12 +67,29 @@ int func_opcoes(){
     }
 
     return 0;
-}    
+}  
+
+int num_tabuada(){
+    int numero, contador, resultado;
+    printf("Qual a tabuada de multiplicar você quer saber");
+    scanf("%d", &numero);
+    getch();
+    contador = 1;
+    while (contador <= 10) {
+        resultado = numero * contador;
+        printf("%d x %d: %d\n", numero, contador, resultado);
+        contador++;
+        getch();
+
+    }
+        return 0; 
+}
 
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     
     func_opcoes();
+    num_tabuada();
    
     return 0;
 }
