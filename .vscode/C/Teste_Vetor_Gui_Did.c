@@ -39,6 +39,12 @@ int func_vetor(){
     getchar();
 
     // Verifica se o tamanho da turma é válido
+    // Se for 0, cancelar
+    if (tamanhoTurma == 0){
+        printf("Tamanho da turma inválido.\n");
+        return;
+    }
+
     while (tamanhoTurma < 1 || tamanhoTurma > MAX_ALUNOS) {
         printf("Tamanho da turma inválido. Digite um valor entre 1 e %d: ", MAX_ALUNOS);
         scanf("%d", &tamanhoTurma);
