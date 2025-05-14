@@ -42,7 +42,7 @@ int func_vetor(){
     // Se for 0, cancelar
     if (tamanhoTurma == 0){
         printf("Tamanho da turma inválido.\n");
-        return;
+        return 1;
     }
 
     while (tamanhoTurma < 1 || tamanhoTurma > MAX_ALUNOS) {
