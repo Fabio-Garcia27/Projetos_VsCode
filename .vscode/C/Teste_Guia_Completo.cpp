@@ -21,6 +21,7 @@
 #include <conio.h>
 #include <unistd.h>
 #include <locale.h>
+#include <ctype.h>
 
 //Declarar variáveis
 
@@ -298,6 +299,21 @@ int func_string() {
   	} else {
 		printf("As strings são diferentes.\n");
   	}
+
+	// Declara uma string
+    char string[] = "embarcados!";
+ 
+  	// Converte a string para maiúsculas
+  	for (int i = 0; string[i] != '\0'; i++) {
+	string[i] = toupper(string[i]);
+  	}
+  	printf("String em maiúsculas: %s\n", string);
+ 
+  	// Converte a string para minúsculas
+  	for (int i = 0; string[i] != '\0'; i++) {
+	string[i] = tolower(string[i]);
+  	}
+  	printf("String em minúsculas: %s\n", string);
 
   getchar();
   return 0;
