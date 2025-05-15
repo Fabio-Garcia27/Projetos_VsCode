@@ -22,9 +22,12 @@
 #include <unistd.h>
 #include <locale.h>
 #include <ctype.h>
+// Nova blbioteca criada pelo usuário
+#include "biblioteca.h"
 
 //Declarar variáveis
 int contador = 0;
+int n;
 
 int func_ope_arit() {
 	int a = 5, b = 3;
@@ -401,7 +404,20 @@ int func_mod_armaz() {
 	getchar();
 	return 0;
 }
- 
+
+// Usar nova biblioteca
+// Nova blbioteca criada pelo usuário
+//#include "biblioteca.h"
+int func_calcularFatorial(int n) {
+	int resultado = 1;
+    for (int i = 2; i <= n; i++) {
+         resultado *= i;
+    }
+    printf("Resultado:  %d\n", resultado);
+	getchar();
+	return 0;
+}
+
 // executar as funções
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para PortuguÉs (Brasil) UTF-8
@@ -421,6 +437,8 @@ int main(){
 	func_string();
 	func_constantes();
 	func_mod_armaz();
+	func_cria_biblioteca();
+	func_calcularFatorial(n);
     // ... seu código aqui ... Descobrir onde está o erro que não abre o programa
     //system("pause"); // ou getchar();
     //return 0;
