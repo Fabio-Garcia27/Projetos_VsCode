@@ -1,4 +1,5 @@
 //Fábio 15/05/2025 - Teste em C Guia Completo Aplicações Vetores - Medias notas de alunos
+//Estrutura de Dados Homogênio Tipo Matriz
 /*
 - stdio.h: entrada e saÉda de dados
 - string.h: manipulaÉÉo de strings
@@ -225,8 +226,6 @@ void func_mostrarTabuleiro(int tabuleiro[LLINHAS][CCOLUNAS]) {
     }
     getchar();
 }
-
-
 
 // executar as funções
 int main(){
