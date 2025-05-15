@@ -29,11 +29,6 @@ int n, temp;
 
 #define MAX_CLIENTES 100
 
-//#define NUM_ALUNOS 5
-//#define NUM_NOTAS 4
-//loat notas[NUM_ALUNOS][NUM_NOTAS];
-
-
 void func_inverterVetoror(int vetor[], int tamanho) {
     int i, temp;
 	for (i = 0; i < tamanho / 2; i++) {
@@ -75,7 +70,7 @@ int func_aplic_vetor() {
     getchar();
 }
 
-#define NUM_ALUNOS 5
+#define NUM_ALUNOS 2
 #define NUM_NOTAS 4
 float notas[NUM_ALUNOS][NUM_NOTAS];
 void func_lerNotas(float notas[NUM_ALUNOS][NUM_NOTAS]) {
@@ -136,20 +131,23 @@ void func_calcularMediaAlunos(float notas[NUM_ALUNOS][NUM_NOTAS]) {
 #define COLUNAS 5
 int matriz[LINHAS][COLUNAS];
 int minMax;
-
 void func_lerMatriz(int matriz[LINHAS][COLUNAS]) {
     int i, j;
     printf("Digite os elementos da matriz:\n");
     for (i = 0; i < LINHAS; i++) {
         for (j = 0; j < COLUNAS; j++) {
-            scanf("%d", &matriz[i][j]);
+            printf("Elemento [%d][%d]: ", i, j);
+            if (scanf("%d", &matriz[i][j]) != 1) {
+                printf("Entrada inválida!\n");
+                // Você pode querer limpar o buffer de entrada aqui
+                getchar();
+            }
         }
     }
 }
 
 void func_encontrarMinMax(int matriz[LINHAS][COLUNAS], int *minMax) {
-    int i, j, menorValor, linhaMenorValor, maiorValorLinha;
-    
+    int i, j, menorValor, linhaMenorValor, maiorValorLinha, colunaMenorValor;
     // Encontrar o menor valor e sua linha
     menorValor = matriz[0][0];
     linhaMenorValor = 0;
@@ -158,6 +156,7 @@ void func_encontrarMinMax(int matriz[LINHAS][COLUNAS], int *minMax) {
             if (matriz[i][j] < menorValor) {
                 menorValor = matriz[i][j];
                 linhaMenorValor = i;
+                colunaMenorValor = j;
             }
         }
     }
@@ -171,6 +170,7 @@ void func_encontrarMinMax(int matriz[LINHAS][COLUNAS], int *minMax) {
     }
     
     *minMax = maiorValorLinha;
+    getchar();
 }  
 
 void func_escreverMatriz(int matriz[LINHAS][COLUNAS]) {
@@ -182,7 +182,51 @@ void func_escreverMatriz(int matriz[LINHAS][COLUNAS]) {
         }
         printf("\n");
     }
+    getchar();
 }
+
+//Estrutura de Dados Homogênio Tipo Matriz
+#define LLINHAS 8
+#define CCOLUNAS 8
+int tabuleiro[LLINHAS][CCOLUNAS];
+void func_inicializarTabuleiro(int tabuleiro[LLINHAS][CCOLUNAS]) {
+    int linha, coluna;
+
+    for (linha = 0; linha < LLINHAS; linha++) {
+        for (coluna = 0; coluna < CCOLUNAS; coluna++) {
+            // Casas vazias
+            if ((linha + coluna) % 2 == 0) {
+                tabuleiro[linha][coluna] = 0;
+            }
+            // Peças brancas
+            else if (linha < 3) {
+                tabuleiro[linha][coluna] = 1;
+            }
+            // Peças pretas
+            else if (linha >= 5) {
+                tabuleiro[linha][coluna] = 2;
+            }
+            else {
+                tabuleiro[linha][coluna] = 0;
+            }
+        }
+    }
+    getchar();
+}
+
+void func_mostrarTabuleiro(int tabuleiro[LLINHAS][CCOLUNAS]) {
+    int linha, coluna;
+
+    for (linha = 0; linha < LLINHAS; linha++) {
+        for (coluna = 0; coluna < CCOLUNAS; coluna++) {
+            printf("%d ", tabuleiro[linha][coluna]);
+        }
+        printf("\n");
+    }
+    getchar();
+}
+
+
 
 // executar as funções
 int main(){
@@ -202,7 +246,10 @@ int main(){
     func_encontrarMinMax(matriz, &minMax);
     func_escreverMatriz(matriz);
     printf("MINMAX: %d\n", minMax);
-    getchar();
+
+    func_inicializarTabuleiro(tabuleiro);
+    func_mostrarTabuleiro(tabuleiro);
+
     printf("\nPrecione Enter para Encerrar...\n");
     getchar();
     return 0;
