@@ -263,6 +263,46 @@ int func_struct() {
     return 0;	
 }
 
+// string e funções
+//strlen(): retorna o tamanho de uma string (sem contar o caractere nulo).
+//strcpy(): copia uma string para outra.
+//strcat(): concatena duas strings.
+//strcmp(): compara duas strings.
+int func_string() {
+ 	// Declara duas strings
+  	char string1[] = "Olá, mundo!";
+  	char string2[20];
+ 
+  	// Copia a string "string1" para "string2"
+  	strcpy(string2, string1);
+ 
+  	// Exibe as duas strings
+  	printf("string1: %s\n", string1);
+  	printf("string2: %s\n", string2);
+ 
+  	// Exibe o tamanho das strings
+  	printf("Tamanho de string1: %ld\n", strlen(string1));
+  	printf("Tamanho de string2: %ld\n", strlen(string2));
+ 
+  	// Concatena as strings e armazena o resultado em uma terceira string
+  	char string3[20];
+  	strcpy(string3, string1);
+  	strcat(string3, string2);
+ 
+  	// Exibe a string resultante da concatenação
+  	printf("string3: %s\n", string3);
+ 
+  	// Compara as strings "string1" e "string2"
+  	if (strcmp(string1, string2) == 0) {
+		printf("As strings são iguais.\n");
+  	} else {
+		printf("As strings são diferentes.\n");
+  	}
+
+  getchar();
+  return 0;
+}
+
 // executar as funções
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para PortuguÉs (Brasil) UTF-8
@@ -279,6 +319,7 @@ int main(){
 	func_do_while();
 	func_vetor();
 	func_struct();
+	func_string();
     // ... seu código aqui ... Descobrir onde está o erro que não abre o programa
     //system("pause"); // ou getchar();
     //return 0;
