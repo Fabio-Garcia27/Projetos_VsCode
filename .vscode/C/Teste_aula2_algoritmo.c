@@ -24,7 +24,9 @@
 #include <ctype.h>
 
 //Declarar variáveis
-int x, y, n1 = 2, n2 = 3, n3, opc, i, num, calc=0;
+int x, y, n1 = 2, n2 = 3, n3, opc, i, num, calc=0, cod, qtde;
+char nome [80];
+float preco;
 
 void func_case(int n1, int n2) {
     printf("Entre com valor 1 ou 2: ");
@@ -103,37 +105,74 @@ int func_execicio_composta() {
 
 // Repitição
 int func_repeticao() {
-    for (x = 1; x <= 5 ; x++) {
-         printf("x = %d \n ", x);
+    printf("Quantos cadastro voce quer for: ");
+    scanf("%i", &qtde);
+    getchar();
+
+    for (x = 1; x <= qtde; x++) {
+         getchar();
+         printf("\nEntre com o código do produto: ");
+         scanf("%i", &cod);
+         getchar();
+ 
+         printf("Entre com o nome do produto: ");
+         fgets(nome, sizeof(nome), stdin);
+         nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+         getchar();
+
+         printf("Entre com o preço do produto: ");
+         scanf("%f", &preco);
+         getchar();
+       
+         printf("\n\nO código = %i, o nome = %s, e o preço = %0.2f", cod, nome, preco);
          getchar();
     }
+    return 0;
 }
 
 // While
 int func_while() {
-    int x = 1;
-    int y = 6;
-    while (x < y) {
-        x = x + 1; // ou x++ ou x += 1
-        printf("%d", x);
+    printf("Quantos cadastro voce quer while: ");
+    scanf("%i", &qtde);
+    getchar();
+    x = 1;
+    while (x <= qtde) {
         getchar();
+        printf("\nEntre com o codigo: ");
+        scanf("%i", &cod);
+        getchar();
+
+        printf("Entre com o nome do produto: ");
+        fgets(nome, sizeof(nome), stdin);
+        nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+        getchar();
+
+        printf("Entre com o preco: ");
+        scanf("%i", &preco);
+        getchar();
+
+        printf("\n\nO codigo = %i, o nome = %s e o preco = %0.2f", cod, nome, preco);
+        getchar;
+        x++;
     }
+    return 0;
 }
 
 // do-While
 int func_do_while() {
-    int x = 1;
-    int y = 6;
+    x = 1;
+    printf("Quantos cadastro voce quer do-while: ");
+    scanf("%i", &qtde);
+    getchar();
     do {
         printf("%d", x);
         x = x + 1; // ou x++ ou x += 1
-    } while (x < y); 
+    } while (x <= qtde); 
     getchar();
 }
 
 // executar as funções
 int main(){
-    int num;
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     func_case(2, 3);
     
