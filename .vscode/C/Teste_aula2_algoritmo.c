@@ -58,12 +58,12 @@ int func_execicio_simples() {
     }
     if (num > 0) {
         calc = num * 2;
-        printf("O valor calculado é: %d\n", calc);
+        printf("O valor positivo calculado é: %d\n", calc);
         getchar();
     }   
     if (num < 0) {
         calc = num * 3;
-        printf("O valor calculado é: %d\n", calc);
+        printf("O valor negativo calculado é: %d\n", calc);
         getchar();
     }
 
@@ -85,12 +85,12 @@ int func_execicio_composta() {
     else {
            if (num > 0) {
                calc = num * 2;
-               printf("O valor calculado é: %d\n", calc);
+               printf("O valor positivo calculado é: %d\n", calc);
                getchar();
            }   
            else { 
                calc = num * 3;
-               printf("O valor calculado é: %d\n", calc);
+               printf("O valor negativo calculado é: %d\n", calc);
                getchar();
            }    
     }    
@@ -123,16 +123,13 @@ int main(){
         case 1:
             printf("\nEstrutura Simples\n");
             func_execicio_simples();
-            getchar();
-            break;
+            break; // para execução da extrutura
         case 2:
             printf("\nEstrutura Composta\n");
             func_execicio_composta();
-            getchar();
             break;
         case 3:
             printf("\nPrecione Enter para Encerrar...\n");
-            getchar();
             break;
         default:
             printf("\nOpção inválida\n");
