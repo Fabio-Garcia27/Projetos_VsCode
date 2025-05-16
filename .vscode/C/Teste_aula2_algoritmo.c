@@ -105,10 +105,42 @@ int func_execicio_composta() {
 
 // executar as funções
 int main(){
+    int num;
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     func_case(2, 3);
-    func_execicio_simples();
-    func_execicio_composta();
+    
+    //Escolher qual tipo de exercício executar o Simples ou o Composto
+    printf("\n1 - Exercício 1 Simples\n");
+    printf("\n2 - Exercício 2 Composto\n");
+    printf("\n3 - Sair\n");
+    printf("Entre com um valor: ");
+    scanf("%d", &num);
+    getchar();
+
+    printf("Você escolheu: %d\n", num);
+
+    switch (num) {
+        case 1:
+            printf("\nEstrutura Simples\n");
+            func_execicio_simples();
+            getchar();
+            break;
+        case 2:
+            printf("\nEstrutura Composta\n");
+            func_execicio_composta();
+            getchar();
+            break;
+        case 3:
+            printf("\nPrecione Enter para Encerrar...\n");
+            getchar();
+            break;
+        default:
+            printf("\nOpção inválida\n");
+            break;
+    }
+    //
+    //func_execicio_simples();
+    //func_execicio_composta();
 
     printf("\nPrecione Enter para Encerrar...\n");
     getche();
