@@ -24,7 +24,7 @@
 #include <ctype.h>
 
 //Declarar variáveis
-int n1 = 2, n2 = 3, n3, opc, i, num, calc=0;
+int x, n1 = 2, n2 = 3, n3, opc, i, num, calc=0;
 
 void func_case(int n1, int n2) {
     printf("Entre com valor 1 ou 2: ");
@@ -101,7 +101,15 @@ int func_execicio_composta() {
     return 0;
 }
 
-
+// Repitição
+int func_repeticao() {
+    for (x = 1; x <= 5 ; x++)
+        {
+         printf("x = %d \n ", x);
+         getchar();
+        }
+    
+}
 
 // executar as funções
 int main(){
@@ -138,6 +146,7 @@ int main(){
     //
     //func_execicio_simples();
     //func_execicio_composta();
+    func_repeticao();
 
     printf("\nPrecione Enter para Encerrar...\n");
     getche();
