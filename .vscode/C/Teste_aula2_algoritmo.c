@@ -103,11 +103,10 @@ int func_execicio_composta() {
 
 // Repitição
 int func_repeticao() {
-    for (x = 1; x <= 5 ; x++)
-        {
+    for (x = 1; x <= 5 ; x++) {
          printf("x = %d \n ", x);
          getchar();
-        }
+    }
 }
 
 // While
@@ -119,7 +118,17 @@ int func_while() {
         printf("%d", x);
         getchar();
     }
-    
+}
+
+// do-While
+int func_do_while() {
+    int x = 1;
+    int y = 6;
+    do {
+        printf("%d", x);
+        x = x + 1; // ou x++ ou x += 1
+    } while (x < y); 
+    getchar();
 }
 
 // executar as funções
@@ -159,6 +168,7 @@ int main(){
     //func_execicio_composta();
     func_repeticao();
     func_while();
+    func_do_while();
 
     printf("\nPrecione Enter para Encerrar...\n");
     getche();
