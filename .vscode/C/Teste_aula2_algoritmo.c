@@ -82,15 +82,21 @@ int func_execicio_composta() {
 
     if (num == 0) {
         printf("Valor neutro\n");
-    } else if (num > 0) {
-        calc = num * 2;
-        printf("O valor calculado é: %d\n", calc);
-        getchar();
-    } else {
-        calc = num * 3;
-        printf("O valor calculado é: %d\n", calc);
-        getchar();
-    }
+    } 
+    else {
+           if (num > 0) {
+               calc = num * 2;
+               printf("O valor calculado é: %d\n", calc);
+               getchar();
+           }   
+    else {
+            if (num < 0) {
+                calc = num * 3;
+                printf("O valor calculado é: %d\n", calc);
+                getchar();
+            }    
+        }
+    }    
 
     printf("O valor original = %i e o valor calculado = %i\n", num, calc);
     getchar();
