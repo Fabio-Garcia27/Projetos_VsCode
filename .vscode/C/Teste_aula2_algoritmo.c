@@ -1,5 +1,4 @@
-//Fábio 15/05/2025 - Teste em C Guia Completo Aplicações Vetores - Medias notas de alunos
-//Estrutura de Dados Homogênio Tipo Matriz
+//Fábio 15/05/2025 - Teste em C Exercícios aula ao vivo 2
 /*
 - stdio.h: entrada e saÉda de dados
 - string.h: manipulaÉÉo de strings
@@ -89,13 +88,11 @@ int func_execicio_composta() {
                printf("O valor calculado é: %d\n", calc);
                getchar();
            }   
-    else {
-            if (num < 0) {
-                calc = num * 3;
-                printf("O valor calculado é: %d\n", calc);
-                getchar();
-            }    
-        }
+           else { 
+               calc = num * 3;
+               printf("O valor calculado é: %d\n", calc);
+               getchar();
+           }    
     }    
 
     printf("O valor original = %i e o valor calculado = %i\n", num, calc);
