@@ -24,7 +24,7 @@
 #include <ctype.h>
 
 //Declarar variáveis
-int x, n1 = 2, n2 = 3, n3, opc, i, num, calc=0;
+int x, y, n1 = 2, n2 = 3, n3, opc, i, num, calc=0;
 
 void func_case(int n1, int n2) {
     printf("Entre com valor 1 ou 2: ");
@@ -108,6 +108,17 @@ int func_repeticao() {
          printf("x = %d \n ", x);
          getchar();
         }
+}
+
+// While
+int func_while() {
+    int x = 1;
+    int y = 6;
+    while (x < y) {
+        x = x + 1; // ou x++ ou x += 1
+        printf("%d", x);
+        getchar();
+    }
     
 }
 
@@ -147,6 +158,7 @@ int main(){
     //func_execicio_simples();
     //func_execicio_composta();
     func_repeticao();
+    func_while();
 
     printf("\nPrecione Enter para Encerrar...\n");
     getche();
