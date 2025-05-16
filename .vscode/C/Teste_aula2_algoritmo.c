@@ -132,43 +132,66 @@ int func_repeticao() {
 
 // While
 int func_while() {
+    x = 1;
+    float preco;
     printf("Quantos cadastro voce quer while: ");
     scanf("%i", &qtde);
     getchar();
-    x = 1;
+
     while (x <= qtde) {
-        getchar();
-        printf("\nEntre com o codigo: ");
-        scanf("%i", &cod);
-        getchar();
+         getchar();
+         printf("\nEntre com o código do produto: ");
+         scanf("%i", &cod);
+         getchar();
+ 
+         printf("Entre com o nome do produto: ");
+         fgets(nome, sizeof(nome), stdin);
+         nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+         getchar();
 
-        printf("Entre com o nome do produto: ");
-        fgets(nome, sizeof(nome), stdin);
-        nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
-        getchar();
-
-        printf("Entre com o preco: ");
-        scanf("%i", &preco);
-        getchar();
-
-        printf("\n\nO codigo = %i, o nome = %s e o preco = %0.2f", cod, nome, preco);
-        getchar;
-        x++;
+         printf("Entre com o preço do produto: ");
+         scanf("%f", &preco);
+         getchar();
+       
+         printf("\n\nO codigo = %i, o nome = %s e o preco = %0.2f", cod, nome, preco);
+         getchar();
+         x++;
     }
+    getchar;
     return 0;
 }
 
 // do-While
 int func_do_while() {
     x = 1;
+    int c;
+    int qtde;
+
     printf("Quantos cadastro voce quer do-while: ");
     scanf("%i", &qtde);
-    getchar();
+    while ((c = getchar()) != '\n' && c != EOF); // Consumir todos os caracteres de nova linha
+ 
     do {
-        printf("%d", x);
-        x = x + 1; // ou x++ ou x += 1
+        printf("\nCadastro %d", x);
+
+        printf("nEntre com o codigo: ");
+        scanf("%i", &cod);
+        while ((c = getchar()) != '\n' && c != EOF); // Consumir todos os caracteres de nova linha
+
+        printf("Entre com o nome do produto: ");
+        fgets(nome, sizeof(nome), stdin);
+        nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Entre com o preco: ");
+        scanf("%f", &preco);
+        while ((c = getchar()) != '\n' && c != EOF); // Consumir todos os caracteres de nova linha
+
+        printf("\n\nO codigo = %i, o nome = %s e o preco = %0.2f\n", cod, nome, preco);
+
+        x++;
     } while (x <= qtde); 
-    getchar();
+  
+    return 0;
 }
 
 // executar as funções
