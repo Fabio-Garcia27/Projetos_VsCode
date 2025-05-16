@@ -48,7 +48,33 @@ void func_case(int n1, int n2) {
     getchar();
 }
 
-int func_execicio() {
+int func_execicio_simples() {
+    calc = 0; // ou algum outro valor que faça sentido para você
+    printf("Entre com valor qualquer: ");
+    scanf("%i", &num);
+    getchar();
+
+    if (num == 0) {
+        printf("Valor neutro\n");
+    }
+    if (num > 0) {
+        calc = num * 2;
+        printf("O valor calculado é: %d\n", calc);
+        getchar();
+    }   
+    if (num < 0) {
+        calc = num * 3;
+        printf("O valor calculado é: %d\n", calc);
+        getchar();
+    }
+
+    printf("O valor original = %i e o valor calculado = %i\n", num, calc);
+    getchar();
+
+    return 0;
+}
+
+int func_execicio_composta() {
     calc = 0; // ou algum outro valor que faça sentido para você
     printf("Entre com valor qualquer: ");
     scanf("%i", &num);
@@ -78,7 +104,8 @@ int func_execicio() {
 int main(){
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     func_case(2, 3);
-    func_execicio();
+    func_execicio_simples();
+    func_execicio_composta();
 
     printf("\nPrecione Enter para Encerrar...\n");
     getche();
