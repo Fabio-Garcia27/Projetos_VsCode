@@ -34,6 +34,7 @@ typedef struct {
     int matricula;
     char nome[50];
     char celular[15];
+    char endereco[50];
     float peso;
     float altura;
 } Aluno;
@@ -61,6 +62,10 @@ void incluirAluno() {
         printf("Digite o número de celular: ");
         fgets(alunos[totalAlunos].celular, sizeof(alunos[totalAlunos].celular), stdin);
         alunos[totalAlunos].celular[strcspn(alunos[totalAlunos].celular, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Digite o endereço residencial: ");
+        fgets(alunos[totalAlunos].endereco, sizeof(alunos[totalAlunos].endereco), stdin);
+        alunos[totalAlunos].endereco[strcspn(alunos[totalAlunos].endereco, "\n")] = 0; // Remover o caractere de nova linha
 
         printf("Digite o peso: ");
         scanf("%f", &alunos[totalAlunos].peso);
@@ -109,22 +114,27 @@ void imprimirRelacaoAlunos() {
     for (int i = 0; i < totalAlunos; i++) {
         fprintf(arquivo, "Matrícula: %d\n", alunos[i].matricula);
         fprintf(arquivo, "Nome: %s\n", alunos[i].nome);
+        fprintf(arquivo, "Nome: %s\n", alunos[i].endereco);
         fprintf(arquivo, "Celular: %s\n", alunos[i].celular);
         fprintf(arquivo, "Peso: %.2f\n", alunos[i].peso);
         fprintf(arquivo, "Altura: %.2f\n\n", alunos[i].altura);
 
+        fclose(arquivo);
+        printf("Relação de alunos salva em Relacao_Alunos.txt\n");
+        getchar();
+        // Para imprimir o arquivo, você pode usar o comando system("lpr relacao_alunos.txt"); no Linux
+        // ou system("print relacao_alunos.txt"); no Windows
+
         printf("Matrícula: %d\n", alunos[i].matricula);
         printf("Nome: %s\n", alunos[i].nome);
+        printf("Nome: %s\n", alunos[i].endereco);
         printf("Celular: %s\n", alunos[i].celular);
         printf("Peso: %.2f\n", alunos[i].peso);
         printf("Altura: %.2f\n\n", alunos[i].altura);
         printf("Aluno Impresso com sucesso!\n");
         return;
     }
-        fclose(arquivo);
-        printf("Relação de alunos salva em relacao_alunos.txt\n");
-        // Para imprimir o arquivo, você pode usar o comando system("lpr relacao_alunos.txt"); no Linux
-        // ou system("print relacao_alunos.txt"); no Windows
+
 }
 
 // Realizar busca de aluno por nome
@@ -137,6 +147,7 @@ void buscarAlunoPorNome() {
         if (strcmp(alunos[i].nome, nome) == 0) {
             printf("Matrícula: %d\n", alunos[i].matricula);
             printf("Nome: %s\n", alunos[i].nome);
+            printf("Nome: %s\n", alunos[i].endereco);
             printf("Celular: %s\n", alunos[i].celular);
             printf("Peso: %.2f\n", alunos[i].peso);
             printf("Altura: %.2f\n", alunos[i].altura);

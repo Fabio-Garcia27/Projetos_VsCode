@@ -1,0 +1,6 @@
+Matrícula: 100
+Nome: Fabio
+Celular: 44 9 9722-0216
+Peso: 80,00
+Altura: 1,65
+
