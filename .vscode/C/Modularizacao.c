@@ -1,4 +1,4 @@
-// Fábio Modularização
+// Fábio Modularização mostrar menor para maior
 /*
 - stdio.h: entrada e saÉda de dados
 - string.h: manipulaÉÉo de strings
