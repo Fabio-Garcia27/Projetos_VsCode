@@ -36,6 +36,7 @@ typedef struct {
     char celular[15];
     char endereco[50];
     char curso[50];
+    char periodo[30];
     float peso;
     float altura;
 } Aluno;
@@ -68,9 +69,13 @@ void incluirAluno() {
         fgets(alunos[totalAlunos].endereco, sizeof(alunos[totalAlunos].endereco), stdin);
         alunos[totalAlunos].endereco[strcspn(alunos[totalAlunos].endereco, "\n")] = 0; // Remover o caractere de nova linha
 
-        printf("Digite o endereço residencial: ");
+        printf("Digite o Curso: ");
         fgets(alunos[totalAlunos].curso, sizeof(alunos[totalAlunos].curso), stdin);
         alunos[totalAlunos].curso[strcspn(alunos[totalAlunos].curso, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Digite o Período: ");
+        fgets(alunos[totalAlunos].periodo, sizeof(alunos[totalAlunos].periodo), stdin);
+        alunos[totalAlunos].periodo[strcspn(alunos[totalAlunos].periodo, "\n")] = 0; // Remover o caractere de nova linha
 
         printf("Digite o peso: ");
         scanf("%f", &alunos[totalAlunos].peso);
@@ -122,6 +127,7 @@ void imprimirRelacaoAlunos() {
         fprintf(arquivo, "Celular: %s\n", alunos[i].celular);
         fprintf(arquivo, "Endereço: %s\n", alunos[i].endereco);
         fprintf(arquivo, "Curso: %s\n", alunos[i].curso);
+        fprintf(arquivo, "Período: %s\n", alunos[i].periodo);
         fprintf(arquivo, "Peso: %.2f\n", alunos[i].peso);
         fprintf(arquivo, "Altura: %.2f\n\n", alunos[i].altura);
 
@@ -136,6 +142,7 @@ void imprimirRelacaoAlunos() {
         printf("Celular: %s\n", alunos[i].celular);        
         printf("Endereço: %s\n", alunos[i].endereco);
         printf("Curso: %s\n", alunos[i].curso);
+        printf("Período: %s\n", alunos[i].periodo);
         printf("Peso: %.2f\n", alunos[i].peso);
         printf("Altura: %.2f\n\n", alunos[i].altura);
         printf("Aluno Impresso com sucesso!\n");
@@ -157,6 +164,7 @@ void buscarAlunoPorNome() {
             printf("Celular: %s\n", alunos[i].celular);            
             printf("Endereço: %s\n", alunos[i].endereco);
             printf("Curso: %s\n", alunos[i].curso);
+            printf("Período: %s\n", alunos[i].periodo);
             printf("Peso: %.2f\n", alunos[i].peso);
             printf("Altura: %.2f\n", alunos[i].altura);
             return;
