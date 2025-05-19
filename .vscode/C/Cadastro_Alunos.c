@@ -208,6 +208,7 @@ int func_aluno() {
                 break;
             case 6:
                 printf("Saindo...\n");
+                sleep(5); // Atraso de 5 segundos
                 break;
             default:
                 printf("Opção inválida!\n");
