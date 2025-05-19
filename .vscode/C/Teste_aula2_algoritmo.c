@@ -24,9 +24,58 @@
 #include <ctype.h>
 
 //Declarar variáveis
-int x, y, n1 = 2, n2 = 3, n3, opc, i, num, calc=0, cod, qtde;
+int x, y, n1 = 2, n2 = 3, n3, opc, i, num, calc=0, cod, qtde, matricula;
 char nome [80];
 float preco;
+
+// Cria variáveis com base em um extrutura
+typedef struct {
+    int codigo;
+    char nome[50];
+    char cargo[50];
+    float salario;
+} Pessoa;
+
+// Fábio 19/05/2025 - Função de Pessoas - Cargo e Salário
+int func_pessoa() {
+    Pessoa dados[5];
+    //int i;
+
+    // Leitura dos dados
+    for (i = 0; i < 5; i++) {
+        printf("Digite o código do funcionário %d: ", i + 1);
+        scanf("%d", &dados[i].codigo);
+        getchar(); // Consumir o caractere de nova linha
+
+        printf("Digite o nome do funcionário %d: ", i + 1);
+        fgets(dados[i].nome, sizeof(dados[i].nome), stdin);
+        dados[i].nome[strcspn(dados[i].nome, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Digite o cargo do funcionário %d: ", i + 1);
+        fgets(dados[i].cargo, sizeof(dados[i].cargo), stdin);
+        dados[i].cargo[strcspn(dados[i].cargo, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Digite o salário do funcionário %d: ", i + 1);
+        scanf("%f", &dados[i].salario);
+        getchar(); // Consumir o caractere de nova linha
+    }
+
+    // Alteração dos dados do funcionário 3
+    dados[2].codigo = 8;
+    strcpy(dados[2].nome, "Jose Paulo");
+    strcpy(dados[2].cargo, "Programador");
+    dados[2].salario = 1500.0;
+
+    // Impressão dos dados
+    for (i = 0; i < 5; i++) {
+        printf("Código: %d\n", dados[i].codigo);
+        printf("Nome: %s\n", dados[i].nome);
+        printf("Cargo: %s\n", dados[i].cargo);
+        printf("Salário: %.2f\n\n", dados[i].salario);
+    }
+
+    return 0;
+}
 
 void func_case(int n1, int n2) {
     printf("Entre com valor 1 ou 2: ");
@@ -197,6 +246,7 @@ int func_do_while() {
 // executar as funções
 int main(){
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
+    func_pessoa();
     func_case(2, 3);
     
     //Escolher qual tipo de exercício executar o Simples ou o Composto
