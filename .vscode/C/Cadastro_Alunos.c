@@ -96,15 +96,35 @@ void excluirAluno() {
     printf("Aluno não encontrado!\n");
 }
 
-// Imprimir relação de alunos
+// Imprimir relação de alunos na tela printf
+// Criar arquivo
+// Imprimir na impressora fprintf
 void imprimirRelacaoAlunos() {
+    FILE *arquivo = fopen("Relacao_Alunos.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        return;
+    }
+
     for (int i = 0; i < totalAlunos; i++) {
+        fprintf(arquivo, "Matrícula: %d\n", alunos[i].matricula);
+        fprintf(arquivo, "Nome: %s\n", alunos[i].nome);
+        fprintf(arquivo, "Celular: %s\n", alunos[i].celular);
+        fprintf(arquivo, "Peso: %.2f\n", alunos[i].peso);
+        fprintf(arquivo, "Altura: %.2f\n\n", alunos[i].altura);
+
         printf("Matrícula: %d\n", alunos[i].matricula);
         printf("Nome: %s\n", alunos[i].nome);
         printf("Celular: %s\n", alunos[i].celular);
         printf("Peso: %.2f\n", alunos[i].peso);
         printf("Altura: %.2f\n\n", alunos[i].altura);
+        printf("Aluno Impresso com sucesso!\n");
+        return;
     }
+        fclose(arquivo);
+        printf("Relação de alunos salva em relacao_alunos.txt\n");
+        // Para imprimir o arquivo, você pode usar o comando system("lpr relacao_alunos.txt"); no Linux
+        // ou system("print relacao_alunos.txt"); no Windows
 }
 
 // Realizar busca de aluno por nome
@@ -155,15 +175,15 @@ int func_aluno() {
                 break;
             case 4:
                 buscarAlunoPorNome();
-            break;
+                break;
             case 5:
-            imprimirDadosAlunos();
-            break;
+                imprimirDadosAlunos();
+                break;
             case 6:
-            printf("Saindo...\n");
-            break;
+                printf("Saindo...\n");
+                break;
             default:
-            printf("Opção inválida!\n");
+                printf("Opção inválida!\n");
         }
     } while (opcao != 6);
            return 0;
