@@ -1,4 +1,4 @@
-// Fábio Sistema Hospitalar
+// Fábio Sistema Votação Online
 /*
 - stdio.h: entrada e saÉda de dados
 - string.h: manipulaÉÉo de strings
