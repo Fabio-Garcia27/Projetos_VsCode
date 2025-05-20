@@ -165,6 +165,7 @@ void func_getResultados()
 // código driver
 int main()
 {
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     // inicializando estruturas necessárias
     for (int i = 0; i < 11; i++) {
         simbolosTaken[i] = 0;
