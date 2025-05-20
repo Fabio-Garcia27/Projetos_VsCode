@@ -23,14 +23,13 @@
 #include <locale.h>
 #include <ctype.h>
 
-// Variáveis global
-int quantidadeBrigadeiros;
-int opcao;
-
 //#define MAX_PACIENTES 100
 #define MAX_PACIENTES 3
 #define MAX_NOME 50
 #define MAX_CIDADE 30
+
+// Variáveis global
+int opcao;
 
 typedef struct {
     int id;
@@ -38,24 +37,30 @@ typedef struct {
     char cidade[MAX_CIDADE];
     float precoCama;
     int leito;
+    int idade;
 } Paciente;
 
 Paciente pacientes[MAX_PACIENTES];
 int totalPacientes = 0;
 
+// Inicializar o vetor
+void inicializarVetor() {
+    totalPacientes = 0;
+}
+
 // Função para adicionar paciente
 void func_adicionarPaciente() {
     if (totalPacientes < MAX_PACIENTES) {
         printf("Digite o nome do paciente: ");
-        scanf("%s", pacientes[totalPacientes].nome);
-        getchar();
-
-        printf("Digite o nome do paciente: ");
-        scanf("%49s", pacientes[totalPacientes].nome);
-        getchar();
+        fgets(pacientes[totalPacientes].nome, sizeof(pacientes[totalPacientes].nome), stdin);
+        pacientes[totalPacientes].nome[strcspn(pacientes[totalPacientes].nome, "\n")] = 0; // Remover o caractere de nova linha
 
         printf("Digite a cidade do paciente: ");
-        scanf("%29s", pacientes[totalPacientes].cidade);
+        fgets(pacientes[totalPacientes].cidade, sizeof(pacientes[totalPacientes].cidade), stdin);
+        pacientes[totalPacientes].cidade[strcspn(pacientes[totalPacientes].cidade, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Digite a idade do Paciente: ");
+        scanf("%f", &pacientes[totalPacientes].idade);
         getchar();
 
         printf("Digite o preço da cama: ");
@@ -70,14 +75,9 @@ void func_adicionarPaciente() {
         totalPacientes++;
 
         printf("Paciente adicionado com sucesso!\n");
-        getchar();
-
     } else {
         printf("Limite de pacientes atingido.\n");
-        getchar();
     }
-        printf("Pressione Enter para continuar...");
-        getchar();
 }
 
 // Função para imprimir dados dos pacientes
@@ -92,6 +92,7 @@ void func_imprimirPacientes() {
         fprintf(arquivo, "ID: %d\n", pacientes[i].id);
         fprintf(arquivo, "Nome: %s\n", pacientes[i].nome);
         fprintf(arquivo, "Cidade: %s\n", pacientes[i].cidade);
+        fprintf(arquivo, "Idade: %i\n", pacientes[i].idade);
         fprintf(arquivo, "Preço da Cama: %.2f\n", pacientes[i].precoCama);
         fprintf(arquivo, "Leito: %d\n\n", pacientes[i].leito);
 
@@ -101,10 +102,10 @@ void func_imprimirPacientes() {
         // Para imprimir o arquivo, você pode usar o comando system("lpr relacao_alunos.txt"); no Linux
         // ou system("print relacao_alunos.txt"); no Windows
 
-
         printf("ID: %d\n", pacientes[i].id);
         printf("Nome: %s\n", pacientes[i].nome);
         printf("Cidade: %s\n", pacientes[i].cidade);
+        printf("Idade: %i\n", pacientes[i].idade);
         printf("Preço da Cama: %.2f\n", pacientes[i].precoCama);
         printf("Leito: %d\n\n", pacientes[i].leito);
         getchar();
@@ -121,7 +122,6 @@ void func_classificarPorPreco() {
                 pacientes[i] = pacientes[j];
                 pacientes[j] = temp;
             }
-            return;
         }
     }
 }
@@ -136,7 +136,6 @@ void func_classificarPorLeito() {
                 pacientes[i] = pacientes[j];
                 pacientes[j] = temp;
             }
-            return;
         }
     }
 }
@@ -151,7 +150,6 @@ void func_classificarPorNome() {
                 pacientes[i] = pacientes[j];
                 pacientes[j] = temp;
             }
-            return;
         }
     }
 }
@@ -167,15 +165,16 @@ void func_imprimirPacientesPorCidade() {
         if (strcmp(pacientes[i].cidade, cidade) == 0) {
             printf("ID: %d\n", pacientes[i].id);
             printf("Nome: %s\n", pacientes[i].nome);
+            printf("Idade: %i\n", pacientes[i].idade);
             printf("Preço da cama: %.2f\n", pacientes[i].precoCama);
             printf("Leito: %d\n\n", pacientes[i].leito);
             getchar();
         }
-        return;
     }
 }
 
-int func_main() {
+int func_pacientes() {
+        inicializarVetor();
         do {
         printf("1. Adicionar paciente\n");
         printf("2. Imprimir pacientes\n");
@@ -212,18 +211,19 @@ int func_main() {
                 break;
             case 7:
                 printf("Saindo do sistema...\n");
+                sleep(5); // Atraso de 5 segundos
                 break;
             default:
                 printf("Opção inválida. Por favor, tente novamente.\n");
                 break;
         }
     } while (opcao != 7);
-
+           return 0;
 }
 
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
-    func_main();
+    func_pacientes();
 
     getche();
     return 0;
