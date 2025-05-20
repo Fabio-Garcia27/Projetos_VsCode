@@ -38,26 +38,27 @@ void func_mostrarCor(int cor) {
             printf("Vermelho\n");
             break;
         case 2:
-            printf("Verde\n");
+            printf("Amarelo\n");
             break;
         case 3:
-            printf("Amarelo\n");
+            printf("Verde\n");
             break;
     }
 }
 
 void func_mudarCor() {
-    cor = (cor % 3) + 1;
-}
+    cor = (cor % 3) + 1; //Essa expressão soma 1 ao resultado da expressão anterior. 
+}                        //Isso é feito para garantir que o valor de cor seja sempre 1, 2 ou 3, que correspondem às cores vermelha, verde e amarela, respectivamente.
+
 
 int func_while() {
     while (1) {
         func_mostrarCor(cor);
         if (cor == 1) { // Vermelho
             sleep(2); // Aguarda 2 segundos
-        } else if (cor == 2) { // Verde
+        } else if (cor == 2) { // Amarelo
             sleep(3); // Aguarda 3 segundos
-        } else if (cor == 3) { // Amarelo
+        } else if (cor == 3) { // Verde
             sleep(1); // Aguarda 1 segundo
         }
         func_mudarCor();
