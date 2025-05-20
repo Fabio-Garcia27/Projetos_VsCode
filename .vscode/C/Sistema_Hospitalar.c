@@ -35,6 +35,9 @@ typedef struct {
     int id;
     char nome[MAX_NOME];
     char cidade[MAX_CIDADE];
+    char estado[30];
+    char medico[50];
+    char doenca[50];
     float precoCama;
     int leito;
     int idade;
@@ -59,8 +62,20 @@ void func_adicionarPaciente() {
         fgets(pacientes[totalPacientes].cidade, sizeof(pacientes[totalPacientes].cidade), stdin);
         pacientes[totalPacientes].cidade[strcspn(pacientes[totalPacientes].cidade, "\n")] = 0; // Remover o caractere de nova linha
 
+        printf("Digite o estado da cidade do paciente: ");
+        fgets(pacientes[totalPacientes].estado, sizeof(pacientes[totalPacientes].estado), stdin);
+        pacientes[totalPacientes].estado[strcspn(pacientes[totalPacientes].estado, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Digite o nome do medico: ");
+        fgets(pacientes[totalPacientes].medico, sizeof(pacientes[totalPacientes].medico), stdin);
+        pacientes[totalPacientes].medico[strcspn(pacientes[totalPacientes].medico, "\n")] = 0; // Remover o caractere de nova linha
+
+        printf("Digite o nome da doenca: ");
+        fgets(pacientes[totalPacientes].doenca, sizeof(pacientes[totalPacientes].doenca), stdin);
+        pacientes[totalPacientes].doenca[strcspn(pacientes[totalPacientes].doenca, "\n")] = 0; // Remover o caractere de nova linha
+
         printf("Digite a idade do Paciente: ");
-        scanf("%f", &pacientes[totalPacientes].idade);
+        scanf("%d", &pacientes[totalPacientes].idade);
         getchar();
 
         printf("Digite o preço da cama: ");
@@ -92,7 +107,10 @@ void func_imprimirPacientes() {
         fprintf(arquivo, "ID: %d\n", pacientes[i].id);
         fprintf(arquivo, "Nome: %s\n", pacientes[i].nome);
         fprintf(arquivo, "Cidade: %s\n", pacientes[i].cidade);
-        fprintf(arquivo, "Idade: %i\n", pacientes[i].idade);
+        fprintf(arquivo, "Estado: %s\n", pacientes[i].estado);
+        fprintf(arquivo, "Médico: %s\n", pacientes[i].medico);
+        fprintf(arquivo, "Doença: %s\n", pacientes[i].doenca);
+        fprintf(arquivo, "Idade: %d\n", pacientes[i].idade);
         fprintf(arquivo, "Preço da Cama: %.2f\n", pacientes[i].precoCama);
         fprintf(arquivo, "Leito: %d\n\n", pacientes[i].leito);
 
@@ -105,7 +123,10 @@ void func_imprimirPacientes() {
         printf("ID: %d\n", pacientes[i].id);
         printf("Nome: %s\n", pacientes[i].nome);
         printf("Cidade: %s\n", pacientes[i].cidade);
-        printf("Idade: %i\n", pacientes[i].idade);
+        printf("Estado: %s\n", pacientes[i].estado);
+        printf("Médico: %s\n", pacientes[i].medico);
+        printf("Doença: %s\n", pacientes[i].doenca);                
+        printf("Idade: %d\n", pacientes[i].idade);
         printf("Preço da Cama: %.2f\n", pacientes[i].precoCama);
         printf("Leito: %d\n\n", pacientes[i].leito);
         getchar();
@@ -165,7 +186,10 @@ void func_imprimirPacientesPorCidade() {
         if (strcmp(pacientes[i].cidade, cidade) == 0) {
             printf("ID: %d\n", pacientes[i].id);
             printf("Nome: %s\n", pacientes[i].nome);
-            printf("Idade: %i\n", pacientes[i].idade);
+            printf("Estado: %s\n", pacientes[i].estado);
+            printf("Médico: %s\n", pacientes[i].medico);
+            printf("Doença: %s\n", pacientes[i].doenca);
+            printf("Idade: %d\n", pacientes[i].idade);
             printf("Preço da cama: %.2f\n", pacientes[i].precoCama);
             printf("Leito: %d\n\n", pacientes[i].leito);
             getchar();
@@ -211,7 +235,6 @@ int func_pacientes() {
                 break;
             case 7:
                 printf("Saindo do sistema...\n");
-                sleep(5); // Atraso de 5 segundos
                 break;
             default:
                 printf("Opção inválida. Por favor, tente novamente.\n");

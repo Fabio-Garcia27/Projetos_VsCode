@@ -1,0 +1,7 @@
+ID: 1
+Nome: F†bio
+Cidade: Umuarama
+Idade: 53
+Pre√ßo da Cama: 1000,00
+Leito: 1
+
