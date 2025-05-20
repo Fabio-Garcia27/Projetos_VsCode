@@ -1,4 +1,4 @@
-// Fábio Sistema Jogo da Velha
+// Fábio Sistema Jogo PacMan
 /*
 Decimal para Binário
 Binário para Decimal
