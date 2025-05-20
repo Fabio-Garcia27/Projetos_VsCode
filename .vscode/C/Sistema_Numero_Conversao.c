@@ -26,7 +26,6 @@ Binário para hexadecimal
 #include <locale.h>
 #include <ctype.h>
 
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> 
@@ -41,7 +40,8 @@ int octal[32];
 int opcao;
 
 // Função para converter decimal para binário
-void func_decimalParaBinario(int decimal) {
+void 
+func_decimalParaBinario(int decimal) {
     while (decimal > 0) {
         binario[i] = decimal % 2;
         decimal = decimal / 2;
@@ -49,6 +49,7 @@ void func_decimalParaBinario(int decimal) {
     }
     for (int j = i - 1; j >= 0; j--) {
         printf("%d", binario[j]);
+        getchar();
     }
 }
 
@@ -73,6 +74,7 @@ void func_decimalParaOctal(int decimal) {
     }
     for (int j = i - 1; j >= 0; j--) {
         printf("%d", octal[j]);
+        getchar();
     }
 }
 
@@ -96,6 +98,7 @@ void func_hexadecimalParaBinario(char *hexadecimal) {
 void func_binarioParaHexadecimal(char *binario) {
     int decimal = func_binarioParaDecimal(binario);
     printf("%X", decimal);
+    getchar();
 }
 
 int func_num_conversao(){
