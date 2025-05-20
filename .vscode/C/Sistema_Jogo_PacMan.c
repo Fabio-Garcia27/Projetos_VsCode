@@ -20,97 +20,109 @@ Binário para hexadecimal
 - pipe(): Cria um pipe para comunicaÉÉo entre processos.
 - locale.h: Localidade do programa, definindo como os dados de texto e numÉricos devem ser tratados.
 */
-#include <conio.h>
+
 #include <unistd.h>
 #include <locale.h>
 #include <ctype.h>
 #include <math.h>
-
-#include <stdio.h>
 #include <string.h>
-#include <stdlib.h> 
 #include <time.h>
 
-// Variáveis global
-char tabuleiro[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-int jogada;
-int turno = 0;
-int linha, coluna;
+#include <stdio.h>
+#include <stdlib.h> 
+#include <windows.h>
+#include <conio.h>
 
-// Função para desenhar o tabuleiro
-void func_desenharTabuleiro() {
-    printf(" %c | %c | %c \n", tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2]);
-    printf("---+---+---\n");
-    printf(" %c | %c | %c \n", tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2]);
-    printf("---+---+---\n");
-    printf(" %c | %c | %c \n", tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2]);
+#define LARGURA 20
+#define ALTURA 10
+
+// Variáveis global
+int pacmanX = 1, pacmanY = 1;
+int pontos[LARGURA][ALTURA];
+int pontuacao = 0;
+int fantasmas[4][2] = {{3, 3}, {5, 5}, {7, 7}, {9, 9}};
+
+// Função para desenhar o labirinto
+void func_desenharLabirinto() {
+    system("cls");
+    for (int i = 0; i < ALTURA; i++) {
+        for (int j = 0; j < LARGURA; j++) {
+            if (i == pacmanY && j == pacmanX) {
+                printf("P "); // Pacman
+            } else if (pontos[j][i] == 1) {
+                printf(". "); // Pontos
+            } else if (j == 0 || j == LARGURA - 1 || i == 0 || i == ALTURA - 1) {
+                printf("# "); // Parede
+            } else {
+                printf("  "); // Espaço vazio
+            }
+            // Desenhar fantasmas
+            for (int k = 0; k < 4; k++) {
+                if (i == fantasmas[k][1] && j == fantasmas[k][0]) {
+                    printf("F "); // Fantasma
+                }
+            }
+        }
+        printf("\n");
+    }
+    printf("Pontuação: %d\n", pontuacao);
+    getchar();
 }
 
-// Função para verificar se há um vencedor
-int func_verificarVencedor(char jogador) {
-    // Verificar linhas
-    for (int i = 0; i < 3; i++) {
-        if (tabuleiro[i][0] == jogador && tabuleiro[i][1] == jogador && tabuleiro[i][2] == jogador) {
+// Função para verificar colisão com fantasmas
+int func_verificarColisao() {
+    for (int i = 0; i < 4; i++) {
+        if (pacmanX == fantasmas[i][0] && pacmanY == fantasmas[i][1]) {
             return 1;
         }
-    }
-    // Verificar colunas
-    for (int i = 0; i < 3; i++) {
-        if (tabuleiro[0][i] == jogador && tabuleiro[1][i] == jogador && tabuleiro[2][i] == jogador) {
-            return 1;
-        }
-    }
-    // Verificar diagonais
-    if ((tabuleiro[0][0] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][2] == jogador) ||
-        (tabuleiro[0][2] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][0] == jogador)) {
-        return 1;
     }
     return 0;
 }
 
-// Função para realizar a jogada do computador
-void func_jogadaComputador() {
-    do {
-        linha = rand() % 3;
-        coluna = rand() % 3;
-    } while (tabuleiro[linha][coluna] == 'O' || tabuleiro[linha][coluna] == 'X');
-    tabuleiro[linha][coluna] = 'O';
-}
-
-// Função para realizar a jogada do usuário
-void func_jogadaUsuario(int jogada) {
-    int linha = (jogada - 1) / 3;
-    int coluna = (jogada - 1) % 3;
-    tabuleiro[linha][coluna] = 'X';
-}
-
 // função que executa as demais funções
-int func_jogo_velha(){
-    srand(time(NULL));
-    func_jogadaComputador();
-    func_desenharTabuleiro();
-    while (turno < 8) {
-        printf("Insira sua jogada (1-9): ");
-        scanf("%d", &jogada);
-        getchar();
-
-        func_jogadaUsuario(jogada);
-        func_desenharTabuleiro();
-        if (func_verificarVencedor('X')) {
-            printf("Você venceu!\n");
-            getchar();
-            return 0;
+int func_pac_man() {
+    // Inicializar pontos
+    for (int i = 1; i < LARGURA - 1; i++) {
+        for (int j = 1; j < ALTURA - 1; j++) {
+            pontos[i][j] = 1;
         }
-        func_jogadaComputador();
-        func_desenharTabuleiro();
-        if (func_verificarVencedor('O')) {
-            printf("Computador venceu!\n");
-            getchar();
-            return 0;
-        }
-        turno++;
     }
-    printf("Empate!\n");
+
+    while (1) {
+        func_desenharLabirinto();
+        char tecla = getch();
+        int novoX = pacmanX, novoY = pacmanY;
+        switch (tecla) {
+            case 'w':
+                novoY--;
+                break;
+            case 's':
+                novoY++;
+                break;
+            case 'a':
+                novoX--;
+                break;
+            case 'd':
+                novoX++;
+                break;
+        }
+        // Verificar colisão com parede
+        if (novoX > 0 && novoX < LARGURA - 1 && novoY > 0 && novoY < ALTURA - 1) {
+            pacmanX = novoX;
+            pacmanY = novoY;
+        }
+        // Verificar colisão com pontos
+        if (pontos[pacmanX][pacmanY] == 1) {
+            pontos[pacmanX][pacmanY] = 0;
+            pontuacao++;
+        }
+        // Verificar colisão com fantasmas
+        if (func_verificarColisao()) {
+            printf("Game Over!\n");
+            getchar();
+            break;
+        }
+    }
     getchar();
     return 0;
 }
@@ -118,7 +130,7 @@ int func_jogo_velha(){
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
 
-    func_jogo_velha();
+    func_pac_man();
     getchar();
     return 0;
 }
