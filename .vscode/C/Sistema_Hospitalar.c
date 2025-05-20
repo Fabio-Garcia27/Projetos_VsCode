@@ -1,4 +1,4 @@
-// Fábio Passagem Parâmetros por Valor
+// Fábio Sistema Hospitalar
 /*
 - stdio.h: entrada e saÉda de dados
 - string.h: manipulaÉÉo de strings
@@ -28,7 +28,7 @@ int quantidadeBrigadeiros;
 int opcao;
 
 //#define MAX_PACIENTES 100
-#define MAX_PACIENTES 5
+#define MAX_PACIENTES 3
 #define MAX_NOME 50
 #define MAX_CIDADE 30
 
@@ -55,14 +55,28 @@ void func_adicionarPaciente() {
         getchar();
 
         printf("Digite o preço da cama: ");
-        scanf("%f", &pacientes[totalPacientes].precoCama);
+        if (scanf("%f", &pacientes[totalPacientes].precoCama) != 1) {
+            printf("Erro ao ler o preço da cama.\n");
+            // Limpar o buffer de entrada
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+            return;
+        }
         getchar();
 
         printf("Digite o número do leito: ");
-        scanf("%d", &pacientes[totalPacientes].leito);
+        if (scanf("%d", &pacientes[totalPacientes].leito) != 1) {
+            printf("Erro ao ler o número do leito.\n");
+            // Limpar o buffer de entrada
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+            return;
+        }
         getchar();
+
         pacientes[totalPacientes].id = totalPacientes + 1;
         totalPacientes++;
+
     } else {
         printf("Limite de pacientes atingido.\n");
         getchar();
@@ -110,6 +124,7 @@ void func_classificarPorPreco() {
                 pacientes[i] = pacientes[j];
                 pacientes[j] = temp;
             }
+            return;
         }
     }
 }
@@ -124,6 +139,7 @@ void func_classificarPorLeito() {
                 pacientes[i] = pacientes[j];
                 pacientes[j] = temp;
             }
+            return;
         }
     }
 }
@@ -138,6 +154,7 @@ void func_classificarPorNome() {
                 pacientes[i] = pacientes[j];
                 pacientes[j] = temp;
             }
+            return;
         }
     }
 }
@@ -157,6 +174,7 @@ void func_imprimirPacientesPorCidade() {
             printf("Leito: %d\n\n", pacientes[i].leito);
             getchar();
         }
+        return;
     }
 }
 
