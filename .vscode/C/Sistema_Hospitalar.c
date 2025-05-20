@@ -50,37 +50,34 @@ void func_adicionarPaciente() {
         scanf("%s", pacientes[totalPacientes].nome);
         getchar();
 
+        printf("Digite o nome do paciente: ");
+        scanf("%49s", pacientes[totalPacientes].nome);
+        getchar();
+
         printf("Digite a cidade do paciente: ");
-        scanf("%s", pacientes[totalPacientes].cidade);
+        scanf("%29s", pacientes[totalPacientes].cidade);
         getchar();
 
         printf("Digite o preço da cama: ");
-        if (scanf("%f", &pacientes[totalPacientes].precoCama) != 1) {
-            printf("Erro ao ler o preço da cama.\n");
-            // Limpar o buffer de entrada
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF);
-            return;
-        }
+        scanf("%f", &pacientes[totalPacientes].precoCama);
         getchar();
 
         printf("Digite o número do leito: ");
-        if (scanf("%d", &pacientes[totalPacientes].leito) != 1) {
-            printf("Erro ao ler o número do leito.\n");
-            // Limpar o buffer de entrada
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF);
-            return;
-        }
+        scanf("%d", &pacientes[totalPacientes].leito);
         getchar();
 
         pacientes[totalPacientes].id = totalPacientes + 1;
         totalPacientes++;
 
+        printf("Paciente adicionado com sucesso!\n");
+        getchar();
+
     } else {
         printf("Limite de pacientes atingido.\n");
         getchar();
     }
+        printf("Pressione Enter para continuar...");
+        getchar();
 }
 
 // Função para imprimir dados dos pacientes
@@ -178,12 +175,8 @@ void func_imprimirPacientesPorCidade() {
     }
 }
 
-
-
-int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
-
-    do {
+int func_main() {
+        do {
         printf("1. Adicionar paciente\n");
         printf("2. Imprimir pacientes\n");
         printf("3. Classificar por preço\n");
@@ -225,6 +218,12 @@ int main() {
                 break;
         }
     } while (opcao != 7);
+
+}
+
+int main() {
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
+    func_main();
 
     getche();
     return 0;
