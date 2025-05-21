@@ -1,4 +1,4 @@
-// Fábio 21/05/25 - Código Calculadora
+// Fábio 21/05/25 - Código Notas dos Bimestre
 /*
 - stdio.h: entrada e saída de dadoscl
 - string.h: manipulação de strings
