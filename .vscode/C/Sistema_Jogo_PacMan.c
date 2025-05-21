@@ -66,7 +66,6 @@ void func_desenharLabirinto() {
         printf("\n");
     }
     printf("Pontuação: %d\n", pontuacao);
-    getchar();
 }
 
 // Função para verificar colisão com fantasmas
@@ -119,11 +118,9 @@ int func_pac_man() {
         // Verificar colisão com fantasmas
         if (func_verificarColisao()) {
             printf("Game Over!\n");
-            getchar();
             break;
         }
     }
-    getchar();
     return 0;
 }
 
