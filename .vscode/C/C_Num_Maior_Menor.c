@@ -27,11 +27,6 @@ int maior=0, menor=0, aux=0, i=0;
     
 int func_maior_menor(void){
     do{
-        system("cls"); //limpa a tela do programa
-        //aux=0;
-        //maior=0;
-        //menor=0;
-
         printf("\n Digite um numero: ");
         scanf("%i", &aux);
         getchar();
