@@ -1,6 +1,37 @@
 // Fábio 20/05/2025 Curso Programação em C
+/*
+Decimal para Binário
+Binário para Decimal
+Decimal para Octal
+Octal para Decimal
+Hexadecimal para Binário
+Binário para hexadecimal
+
+- stdio.h: entrada e saÉda de dados
+- string.h: manipulaÉÉo de strings
+- stdlib.h: alocÉÉo de memria, conversÉo de tipos, etc.
+- math.h: funÉÉes matemÉticas
+- time.h: funÉÉes de data e hora
+- conio.h: comandos de entrada e saÉda diversas
+- unistd.h: 
+- sleep(): Faz com que o programa aguarde um determinado perÉodo de tempo (em segundos).
+- usleep(): Faz com que o programa aguarde um determinado perÉodo de tempo (em microssegundos).
+- fork(): Cria um novo processo.
+- pipe(): Cria um pipe para comunicaÉÉo entre processos.
+- locale.h: Localidade do programa, definindo como os dados de texto e numÉricos devem ser tratados.
+*/
+
+#include <unistd.h>
+#include <locale.h>
+#include <ctype.h>
+#include <math.h>
+#include <string.h>
+#include <time.h>
+
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> 
+#include <windows.h>
+#include <conio.h>
 
 //Variáveis global
 int i;
