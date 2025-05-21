@@ -9,6 +9,7 @@ int soma = 0;
 // argc número inteiro passar parâmetro numérico
 // argv passar parâmetros string nomes
 int main(int argc, char* argv[]) {
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     if (argc == 1){
         printf("Programa %s sem parâmetros\n", argv[0]);
     } else {
