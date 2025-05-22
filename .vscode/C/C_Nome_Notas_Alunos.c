@@ -159,7 +159,7 @@ void menu(){
         system("cls"); // limpa a tela do terminal 
         printf("\n1 - Cadastrar Aluno\n2 - Remover Aluno");
         printf("\n3 - Alunos Reprovados\n4 - Pesquisar Aluno");
-        printf("\n5 - Listar Aluno\\n6 - Alunos Aprovados");
+        printf("\n5 - Listar Aluno\n6 - Alunos Aprovados");
         printf("\n0 - Sair\n");
         scanf("%d", &op);
         getchar();
