@@ -78,17 +78,38 @@ void cadastrar(){
 
 // função remover alunos
 void remover(){
-printf("remover");
+    printf("Pressione uma tecla para continuar...");    
+    getchar();
 }
 
 // função reprovar alunos
 void reprovados(){
-printf("reprovado");
+    system("cls"); 
+    float media;
+    printf("\nLista de Alunos Reprovados\n"); 
+    for (i = 0; i < Max_Alunos; i++){
+        if (alunos[i].ativo==1){
+           media = 0;
+           media = alunos[i].notas[0]+alunos[i].notas[1]+alunos[i].notas[2]+alunos[i].notas[3];
+           media = media / 4;
+           if (media < 6.0){
+               printf("Nome: %s\n", alunos[i].nome);
+               printf("1 BI: %0.2f\n", alunos[i].notas[0]);
+               printf("2 BI: %0.2f\n", alunos[i].notas[1]);
+               printf("3 BI: %0.2f\n", alunos[i].notas[2]);
+               printf("4 BI: %0.2f\n", alunos[i].notas[3]);
+               printf("\n-------------\n");                
+            }
+        }
+    }
+    printf("Pressione uma tecla para continuar...");    
+    getchar();
 }
 
 // função pesquisar alunos
 void pesquisar(){
-printf("pesquisar");
+    printf("Pressione uma tecla para continuar...");    
+    getchar();
 }
 
 // função listar alunos
@@ -109,6 +130,28 @@ void listar(){
     getchar();
 }
 
+// função alunos aprovados
+void aprovados(){
+    system("cls"); 
+    float media;
+    printf("\nLista de Alunos Reprovados\n"); 
+    for (i = 0; i < Max_Alunos; i++){
+        if (alunos[i].ativo==1){
+           media = 0;
+           media = alunos[i].notas[0]+alunos[i].notas[1]+alunos[i].notas[2]+alunos[i].notas[3];
+           media = media / 4;
+           if (media >= 6.0){
+               printf("Nome: %s\n", alunos[i].nome);
+               printf("1 BI: %0.2f\n", alunos[i].notas[0]);
+               printf("2 BI: %0.2f\n", alunos[i].notas[1]);
+               printf("3 BI: %0.2f\n", alunos[i].notas[2]);
+               printf("4 BI: %0.2f\n", alunos[i].notas[3]);
+               printf("\n-------------\n");                
+            }
+        }
+    }
+}
+
 // função menu
 void menu(){
     int op;
@@ -116,7 +159,8 @@ void menu(){
         system("cls"); // limpa a tela do terminal 
         printf("\n1 - Cadastrar Aluno\n2 - Remover Aluno");
         printf("\n3 - Alunos Reprovados\n4 - Pesquisar Aluno");
-        printf("\n5 - Listar Aluno\n0 - Sair\n");
+        printf("\n5 - Listar Aluno\\n6 - Alunos Aprovados");
+        printf("\n0 - Sair\n");
         scanf("%d", &op);
         getchar();
         switch (op) {
@@ -135,6 +179,9 @@ void menu(){
             case 5:
                 listar();
                 break;  
+            case 6:
+                aprovados();
+                break;                  
             case 0:
                 printf("Saindo...\n"); 
                 break;                
