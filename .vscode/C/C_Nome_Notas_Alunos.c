@@ -26,8 +26,7 @@
 #define Max_Alunos 50
 
 //Variáveis
-int op=0;
-int i=0;
+int i;
 char nome[50];
 float notas[4];
 
@@ -41,28 +40,25 @@ Aluno alunos[Max_Alunos];
 
 // função cadastrar alunos
 void cadastrar(){
-    system("cls");
+    int op;
     do{
+        system("cls"); 
         // Usa nome tem que usar fgets 
         printf("\nNome: ");
         fgets(nome, sizeof(nome), stdin);
 
         printf("\n1 Bimestre: ");
         scanf("%f", &notas[0]);
-        getchar();
 
         printf("\n2 Bimestre: ");
         scanf("%f", &notas[1]);
-        getchar();
 
         printf("\n3 Bimestre: ");
         scanf("%f", &notas[2]);
-        getchar();
 
         printf("\n4 Bimestre: ");
         scanf("%f", &notas[3]);
-        getchar();        
-
+   
         for (i = 0; i < Max_Alunos; i++) {
             if (alunos[i].ativo==0){
                 alunos [i].notas[0] = notas[0];
@@ -70,27 +66,29 @@ void cadastrar(){
                 alunos [i].notas[2] = notas[2];
                 alunos [i].notas[3] = notas[3];
                 strcpy(alunos[i].nome, nome); // copia uma string para outra / destino para origem
-                // Criar arquivo com os dados dos alunos
-                FILE *arquivo = fopen("Relacao_Aluno_Notas.txt", "w");
-                if (arquivo == NULL) {
-                    printf("Erro ao abrir o arquivo!\n");
-                    return;
-                }
-                fprintf(arquivo, "Nome: %s\n", alunos[i].nome);
-                fprintf(arquivo, "Nota 1 BI: %.2f\n", alunos[i].notas[0]);
-                fprintf(arquivo, "Nota 2 BI: %.2f\n", alunos[i].notas[1]);
-                fprintf(arquivo, "Nota 3 BI: %.2f\n", alunos[i].notas[2]);
-                fprintf(arquivo, "Nota 4 BI: %.2f\n", alunos[i].notas[3]);
-                fclose(arquivo);
-                printf("Relação de alunos e notas salva em Relacao_Aluno_Notas.txt\n");
-                break; // senão colocar o break vai repetir o mesmo aluno várias vezes
-                //getchar();
-            }                
+                alunos[i].ativo = 1;
+                break; // senão colocar o break vai repetir o mesmo aluno várias vezes                
+             }  
         }    
         printf("\n1 - Continuar \n0 - Sair\n");
         scanf("%d", &op);
-        getchar();
-    } while (op != 0);
+        getchar();   
+     } while (op != 0);
+}
+
+// função remover alunos
+void remover(){
+printf("remover");
+}
+
+// função reprovar alunos
+void reprovados(){
+printf("reprovado");
+}
+
+// função pesquisar alunos
+void pesquisar(){
+printf("pesquisar");
 }
 
 // função listar alunos
@@ -98,38 +96,24 @@ void listar(){
     system("cls"); 
     printf("\nLista de Alunos\n"); 
     for (i = 0; i < Max_Alunos; i++){
-        printf("\n-------------\n");
-        printf("Nome: %s\n", alunos[i].nome);
-        printf("Nota 1 BI: %.2f\n", alunos[i].notas[0]);
-        printf("Nota 2 BI: %.2f\n", alunos[i].notas[1]);
-        printf("Nota 3 BI: %.2f\n", alunos[i].notas[2]);
-        printf("Nota 4 BI: %.2f\n", alunos[i].notas[3]);
-        printf("\n-------------\n");
+        if (alunos[i].ativo==1){
+           printf("Nome: %s\n", alunos[i].nome);
+           printf("1 BI: %0.2f\n", alunos[i].notas[0]);
+           printf("2 BI: %0.2f\n", alunos[i].notas[1]);
+           printf("3 BI: %0.2f\n", alunos[i].notas[2]);
+           printf("4 BI: %0.2f\n", alunos[i].notas[3]);
+           printf("\n-------------\n");
+        }
     }
+    printf("Pressione uma tecla para continuar...");    
     getchar();
 }
 
-// função reprovar alunos
-void reprovados(){
-
-}
-
-// função pesquisar alunos
-void pesquisar(){
-
-}
-
-// função remover alunos
-void remover(){
-
-}
-
-
 // função menu
 void menu(){
+    int op;
     do{
-        //system("clear"); Linux
-        system("cls"); // limpa a tela do terminal        
+        system("cls"); // limpa a tela do terminal 
         printf("\n1 - Cadastrar Aluno\n2 - Remover Aluno");
         printf("\n3 - Alunos Reprovados\n4 - Pesquisar Aluno");
         printf("\n5 - Listar Aluno\n0 - Sair\n");
@@ -140,7 +124,7 @@ void menu(){
                 cadastrar();
                 break;
             case 2:
-                listar();
+                remover();
                 break;
             case 3:
                 reprovados();
@@ -149,21 +133,27 @@ void menu(){
                 pesquisar();
                 break;
             case 5:
-                remover();
+                listar();
+                break;  
+            case 0:
+                printf("Saindo...\n"); 
                 break;                
             default:
-                break;
+                printf("Opcao Invalida...\n");
+                getchar(); // Adicione getchar() aqui para pausar em opções inválidas
         }
-        getchar();
     } while (op != 0);
 }
 
 // argc será 4 (o nome do programa mais os 3 argumentos)
 // argv será um array contendo: 
-//(int argc, char const *argv[])
-int main(){
+int main(int argc, char const *argv[]){
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
+    // Inicializar a estrutura alunos
+    for (i = 0; i < Max_Alunos; i++) {
+        alunos[i].ativo = 0;
+    }
+
     menu();
-    getchar();
     return 0;
 }
