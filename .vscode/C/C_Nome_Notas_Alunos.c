@@ -134,7 +134,7 @@ void listar(){
 void aprovados(){
     system("cls"); 
     float media;
-    printf("\nLista de Alunos Reprovados\n"); 
+    printf("\nLista de Alunos Aprovados\n"); 
     for (i = 0; i < Max_Alunos; i++){
         if (alunos[i].ativo==1){
            media = 0;
