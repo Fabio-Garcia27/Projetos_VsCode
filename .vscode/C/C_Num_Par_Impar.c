@@ -1,5 +1,4 @@
-// Fábio 21/05/25 - Busca de Vetor Linear
-
+// Fábio 21/05/25 - Código Maior ou Menor Valor
 /*
 - stdio.h: entrada e saída de dadoscl
 - string.h: manipulação de strings
@@ -23,23 +22,29 @@
 #include <unistd.h>
 #include <locale.h>
 
-//Variável global
-int i;
+//Variáveis
+int soma=0, valor=0;
+    
+int func_par_impar(void){
+    do{
+        system("cls"); // limpar tela em cada passada do laço
+        printf("\n Digite um valor diferente de 0: ");
+        scanf("%d", &valor);
+        getchar();
 
-int buscalinear(int *v, int n, int elem){
-    for (i=0; i < n, i++){
-        if (elem == v[i])
-           return i; //elemento encontrado
-    }    
-    return -1; //elemento não encontrado
-}
-
+        // primeira execução i=0
+        // Saber se o valor é par
+        if(valor%2 == 0){
+            soma += valor;
+        } 
+    }while(valor != 0);
+    printf("\n A soma dos numeros pares e: %d", soma);
+}  
 
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
-
-
+    func_par_impar();
+    getchar();
     return 0;
-
 }
