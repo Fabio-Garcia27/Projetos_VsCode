@@ -29,7 +29,7 @@ float vm = 0, s = 0, t = 0;
 int func_vel_media(void){
     do{
         system("cls"); // limpar tela em cada passada do laço
-        printf("\n  1 - Velocidade \n 2 - Espaco \n ");
+        printf("\n  1 - Velocidade \n 2 - Espaco \n 0 - Sair");
         scanf("%d", &op);
         getchar();
 
@@ -40,18 +40,32 @@ int func_vel_media(void){
            printf("\n Digete o tempo:" );
            scanf("%f", &t);
            getchar();
-           printf("\n A velocidade media e: %f", (s/t));
+           if (t != 0) {
+               printf("\n A velocidade media e: %f", (s / t));
+           } else {
+               printf("\n Tempo não pode ser zero!");
+           }
+           getchar();
         } else if (op == 2){
            printf("\n Digite a velocidade media: "); 
            scanf("%f", &vm);
            getchar();
            printf("\n Digite o tempo: ");
            scanf("%f", &t);
+           printf("\n O espaco e: %0.2f", (vm*t));
+           getchar();
+        } else if (op != 0 && op != 1 && op != 2){
+           printf("\n Valor digitado errado, só pode ser 1, 2 ou 0 para Sair.");
            getchar();
         }
-    }while ((op != 1) && (op != 2));
-    printf("\n Valor digitado errado, só pode ser 1 ou 2.");
-}  
+    }while (op != 0);
+
+    if (op == 0) {
+        printf("\n Sair...");
+        getchar();
+    }
+}
+
 
 // É o ponto de entrada do programa, onde a execução começa quando o programa é iniciado
 int main() {
