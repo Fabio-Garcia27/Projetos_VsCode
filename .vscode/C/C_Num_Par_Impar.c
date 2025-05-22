@@ -33,7 +33,7 @@ int func_par_impar(void){
         getchar();
 
         // primeira execução i=0
-        // Saber se o valor é par
+        // Saber se o valor é par ou ímpar:- 0 é par e se for 1 é ímpar
         if(valor%2 == 0){
             soma += valor;
         } 
