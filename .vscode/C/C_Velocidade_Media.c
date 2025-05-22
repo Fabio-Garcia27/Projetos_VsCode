@@ -28,12 +28,12 @@ float vm = 0, s = 0, t = 0;
     
 int func_vel_media(void){
     do{
-        system("cls"); // limpar tela em cada passada do laço
         printf("\n 1 - Velocidade \n 2 - Espaco \n 0 - Sair");
         scanf("%d", &op);
         getchar();
 
         if(op == 1){
+           system("cls"); // limpar tela em cada passada do laço  
            printf("\n Digite a espaco:" );
            scanf("%f", &s);
            getchar();
@@ -45,6 +45,7 @@ int func_vel_media(void){
            printf("\n A velocidade media e: %f", (s / t));
            getchar();
         } else if (op == 2){
+           system("cls"); // limpar tela em cada passada do laço            
            printf("\n Digite a velocidade media: "); 
            scanf("%f", &vm);
            getchar();
