@@ -140,7 +140,7 @@ void aprovados(){
            media = 0;
            media = alunos[i].notas[0]+alunos[i].notas[1]+alunos[i].notas[2]+alunos[i].notas[3];
            media = media / 4;
-           if (media >= 6){
+           if (media >= 6.0){
                printf("Nome: %s\n", alunos[i].nome);
                printf("1 BI: %0.2f\n", alunos[i].notas[0]);
                printf("2 BI: %0.2f\n", alunos[i].notas[1]);
@@ -150,6 +150,8 @@ void aprovados(){
             }
         }
     }
+    printf("Pressione uma tecla para continuar...");    
+    getchar();    
 }
 
 // função menu
