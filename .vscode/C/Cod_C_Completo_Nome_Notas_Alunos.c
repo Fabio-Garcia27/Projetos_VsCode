@@ -1,4 +1,7 @@
 // Fábio 21/05/25 - Nome e notas de alunos
+// Com funções Cadastrar-remover-reprovados-pesquisar-listar-aprovados-0 Sair
+// Função Menu onde está o menu de operações aluno e chama as funções acima
+// Função main set linguagem e chama a função menu
 /*
 - stdio.h: entrada e saída de dadoscl
 - string.h: manipulação de strings
@@ -247,7 +250,16 @@ void menu(){
 
 // argc será 4 (o nome do programa mais os 3 argumentos)
 // argv será um array contendo: 
-int main(int argc, char const *argv[]){
+//int main(int argc, char const *argv[]){
+/*
+- Se você compilar um programa com o nome meu_programa e executá-lo com o comando ./meu_programa -a -b arquivo.txt, o programa receberá os seguintes argumentos:
+- argc = 4
+- argv[0] = "./meu_programa"
+- argv[1] = "-a"
+- argv[2] = "-b"
+- argv[3] = "arquivo.txt"
+*/
+int main(){
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     // Inicializar a estrutura alunos
     for (i = 0; i < Max_Alunos; i++) {
