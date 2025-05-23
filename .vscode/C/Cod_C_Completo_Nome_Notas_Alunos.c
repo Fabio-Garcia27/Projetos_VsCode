@@ -60,6 +60,7 @@ void cadastrar(){
 
         printf("\n1 Bimestre: ");
         scanf("%f", &notas[0]);
+        getchar(); // Consumir o caractere de nova linha
 
         printf("\n2 Bimestre: ");
         scanf("%f", &notas[1]);
@@ -208,8 +209,30 @@ void aprovados(){
     getchar();    
 }
 
+// Fábio 23/05/2025 Gravar Alunos em um arquivo
+void gravarAlunos() {
+    FILE *arquivo = fopen("Relacao_Alunos_Completa.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        return;
+    }
+
+    for (i = 0; i < Max_Alunos; i++) {
+        if (alunos[i].ativo == 1) {
+            fprintf(arquivo, "Nome: %s\n", alunos[i].nome);
+            fprintf(arquivo, "Notas: %.2f, %.2f, %.2f, %.2f\n", alunos[i].notas[0], alunos[i].notas[1], alunos[i].notas[2], alunos[i].notas[3]);
+            fprintf(arquivo, "\n");
+        }
+    }
+
+    fclose(arquivo);
+    //printf("Alunos gravados com sucesso!\n");
+    printf("Relação de alunos salva em Relacao_Alunos_Completa.txt\n");
+    getchar();
+}
+
 // função menu
-void menu(){
+void menu() {
     int op;
     do{
         system("cls"); // limpa a tela do terminal 
@@ -222,6 +245,7 @@ void menu(){
         switch (op) {
             case 1:
                 cadastrar();
+                gravarAlunos(); // Gravar Alunos em um arquivo
                 break;
             case 2:
                 remover();
@@ -259,7 +283,7 @@ void menu(){
 - argv[2] = "-b"
 - argv[3] = "arquivo.txt"
 */
-int main(){
+int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
     // Inicializar a estrutura alunos
     for (i = 0; i < Max_Alunos; i++) {

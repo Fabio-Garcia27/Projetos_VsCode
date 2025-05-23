@@ -1,0 +1,6 @@
+Nome: Fabio
+Notas: 7,00, 6,00, 7,00, 8,00
+
+Nome: Adriana
+Notas: 8,00, 8,00, 8,00, 7,00
+
