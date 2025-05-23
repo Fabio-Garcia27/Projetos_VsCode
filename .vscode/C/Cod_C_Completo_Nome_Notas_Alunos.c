@@ -46,19 +46,30 @@ void cadastrar(){
         // Usa nome tem que usar fgets 
         printf("\nNome: ");
         fgets(nome, sizeof(nome), stdin);
+        nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+
+        // Verificar se o nome está vazio
+        while (strlen(nome) == 0){
+            printf("Nome nao pode ser vazio. Por favor, digite novamente: ");
+            fgets(nome, sizeof(nome), stdin);
+            nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+        }        
 
         printf("\n1 Bimestre: ");
         scanf("%f", &notas[0]);
 
         printf("\n2 Bimestre: ");
         scanf("%f", &notas[1]);
+        getchar(); // Consumir o caractere de nova linha
 
         printf("\n3 Bimestre: ");
         scanf("%f", &notas[2]);
+        getchar(); // Consumir o caractere de nova linha
 
         printf("\n4 Bimestre: ");
         scanf("%f", &notas[3]);
-   
+        getchar(); // Consumir o caractere de nova linha 
+
         for (i = 0; i < Max_Alunos; i++) {
             if (alunos[i].ativo==0){
                 alunos [i].notas[0] = notas[0];
@@ -109,13 +120,11 @@ void reprovados(){
 // função pesquisar alunos
 void pesquisar(){
     system("cls");
-    printf("\nDigite o nome do aluno: ");
-    //scanf("%49s", nome); Tem como usar dessa sintaxe
-    // E também dessa sintaxe usando a função fgets
-    fgets(nome, sizeof(nome), stdin);
+    printf("Digite o nome do aluno: ");
+    fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
     nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
-    getche();
 
+    int encontrado = 0;
     for (i = 0; i < Max_Alunos; i++) {
         if (alunos[i].ativo == 1 && strcmp(alunos[i].nome, nome) == 0){
             printf("Nome: %s\n", alunos[i].nome);
@@ -124,13 +133,13 @@ void pesquisar(){
             printf("3 BI: %0.2f\n", alunos[i].notas[2]);
             printf("4 BI: %0.2f\n", alunos[i].notas[3]);
             printf("\n-------------\n");
-            printf("Pressione uma tecla para continuar...");
-            getchar();
-            return;             
-            }  
-    } 
-    printf("Aluno não encontrado!\n");
-    printf("Pressione uma tecla para continuar...");
+            encontrado = 1;
+        }  
+    }
+    if (encontrado == 0){
+        printf("Aluno não encontrado!\n"); 
+    }    
+    printf("Pressione uma tecla para continuar...");    
     getchar();
 }
 
