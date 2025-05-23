@@ -1,7 +1,4 @@
 // Fábio 21/05/25 - Contador digito - unidade - dezena - centena
-// Com funções Cadastrar-remover-reprovados-pesquisar-listar-aprovados-0 Sair
-// Função Menu onde está o menu de operações aluno e chama as funções acima
-// Função main set linguagem e chama a função menu
 /*
 - stdio.h: entrada e saída de dadoscl
 - string.h: manipulação de strings
