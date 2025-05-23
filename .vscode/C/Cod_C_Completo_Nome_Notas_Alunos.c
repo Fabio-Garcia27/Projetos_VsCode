@@ -108,7 +108,29 @@ void reprovados(){
 
 // função pesquisar alunos
 void pesquisar(){
-    printf("Pressione uma tecla para continuar...");    
+    system("cls");
+    printf("\nDigite o nome do aluno: ");
+    //scanf("%49s", nome); Tem como usar dessa sintaxe
+    // E também dessa sintaxe usando a função fgets
+    fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+    getche();
+
+    for (i = 0; i < Max_Alunos; i++) {
+        if (alunos[i].ativo == 1 && strcmp(alunos[i].nome, nome) == 0){
+            printf("Nome: %s\n", alunos[i].nome);
+            printf("1 BI: %0.2f\n", alunos[i].notas[0]);
+            printf("2 BI: %0.2f\n", alunos[i].notas[1]);
+            printf("3 BI: %0.2f\n", alunos[i].notas[2]);
+            printf("4 BI: %0.2f\n", alunos[i].notas[3]);
+            printf("\n-------------\n");
+            printf("Pressione uma tecla para continuar...");
+            getchar();
+            return;             
+            }  
+    } 
+    printf("Aluno não encontrado!\n");
+    printf("Pressione uma tecla para continuar...");
     getchar();
 }
 
