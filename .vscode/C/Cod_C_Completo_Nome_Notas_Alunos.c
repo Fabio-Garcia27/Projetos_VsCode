@@ -29,6 +29,7 @@
 int i;
 char nome[50];
 float notas[4];
+int totalAlunos;
 
 typedef struct {
     char nome[50];
@@ -37,6 +38,12 @@ typedef struct {
 } Aluno;
 
 Aluno alunos[Max_Alunos];
+
+// Fábio 23/05/2025 Criado
+// Inicializar o vetor
+void inicializar_Tot_Alu() {
+    totalAlunos = 0;
+}
 
 // função cadastrar alunos
 void cadastrar(){
@@ -78,17 +85,38 @@ void cadastrar(){
                 alunos [i].notas[3] = notas[3];
                 strcpy(alunos[i].nome, nome); // copia uma string para outra / destino para origem
                 alunos[i].ativo = 1;
+                totalAlunos++; // Incrementar totalAlunos aqui 
                 break; // senão colocar o break vai repetir o mesmo aluno várias vezes                
              }  
-        }    
+        } 
         printf("\n1 - Continuar \n0 - Sair\n");
         scanf("%d", &op);
         getchar();   
      } while (op != 0);
 }
 
+// Fábio 23/05/2025 Criada
 // função remover alunos
 void remover(){
+    system("cls");
+    printf("Digite o nome do aluno a ser removido: ");
+    fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
+    nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+
+    int encontrado = 0;
+    printf("%d", totalAlunos);
+    getchar();
+
+    for (i = 0; i < Max_Alunos; i++) {
+        if (alunos[i].ativo == 1 && strcmp(alunos[i].nome, nome) == 0){
+            totalAlunos--;
+            printf("Aluno removido com sucesso!\n");
+            encontrado = 1;
+        }  
+    }
+    if (encontrado == 0){
+        printf("Aluno não encontrado!\n"); 
+    }    
     printf("Pressione uma tecla para continuar...");    
     getchar();
 }
@@ -117,10 +145,11 @@ void reprovados(){
     getchar();
 }
 
+// Fábio 23/05/25 Criada
 // função pesquisar alunos
 void pesquisar(){
     system("cls");
-    printf("Digite o nome do aluno: ");
+    printf("Digite o nome do aluno a ser pesquisado: ");
     fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
     nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
 
@@ -233,7 +262,8 @@ int main(int argc, char const *argv[]){
     for (i = 0; i < Max_Alunos; i++) {
         alunos[i].ativo = 0;
     }
-
+    //Fábio 23/05/2025 - Função zerar total_Alunos
+    inicializar_Tot_Alu();
     menu();
     return 0;
 }
