@@ -22,7 +22,9 @@
 #include <unistd.h>
 #include <locale.h>
 
-// Variáveis
+#define LIMITE 4
+
+//Variáveis
 char nome[25];
 int i;
 
@@ -30,8 +32,8 @@ void func_nome_letras(){
     printf("\nDigite o nome: ");
     fgets(nome, 25, stdin);   // E também dessa sintaxe fgets busca o nome corretamente
     nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
-    for (i = 0; i < 4; ++i){
-        printf("%c", nome[1]);       
+    for (i = 0; i < LIMITE; ++i){
+        printf("%c", nome[i]);       
     }
     printf("\n");
     getchar();
