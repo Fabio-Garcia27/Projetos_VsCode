@@ -29,14 +29,12 @@ int i, tamanho;
 // Imprimir posição ímpar
 void func_imprimir_impar(){
     printf("Digite um nome: \n");
-    fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
-    nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
-    
-    tamanho = strlen(nome);
-
+    fgets(nome, sizeof(nome), stdin); 
+    nome[strcspn(nome, "\n")] = 0; 
+    int tamanho = strlen(nome);
     for (i = 0; i < tamanho; ++i){
-        if (i%2 != 0){
-            printf("%c", nome[i]);    
+        if (i % 2 != 0){
+            printf("%c", nome[i]);
         }
     }
     printf("\n");
