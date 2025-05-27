@@ -25,12 +25,15 @@
 #define LIMITE 4
 
 //Variáveis
-char nome[25];
+char nome[40];
+char endereco[50];
+char telefone[12];
 int i;
 
+// Listar as letras do nome até definição do tamanho LIMITE
 void func_nome_letras(){
     printf("\nDigite o nome: ");
-    fgets(nome, 25, stdin);   // E também dessa sintaxe fgets busca o nome corretamente
+    fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
     nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
     for (i = 0; i < LIMITE; ++i){
         printf("%c", nome[i]);       
@@ -39,11 +42,30 @@ void func_nome_letras(){
     getchar();
 }
 
+// Listar dados
+void func_dados_end(){
+    printf("\nDigite o nome: ");
+    fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
+    nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+
+    printf("\nDigite o endereco: ");
+    fgets(endereco, sizeof(endereco), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
+    endereco[strcspn(endereco, "\n")] = 0; // Remover o caractere de nova linha        
+
+    printf("\nDigite o telefone: ");
+    fgets(telefone, sizeof(telefone), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
+    telefone[strcspn(telefone, "\n")] = 0; // Remover o caractere de nova linha    
+
+    printf("\n");
+    printf("Nome: %s\nEndereco: %s\nTelefone: %s", nome, endereco, telefone);    
+}
+
 // argc será 4 (o nome do programa mais os 3 argumentos)
 // argv será um array contendo: 
 //int main(int argc, char const *argv[]){
 int main(int argc, char const *argv[]){
     func_nome_letras();
+    func_dados_end();
     getchar();
     return 0;
 }
