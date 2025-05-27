@@ -1,4 +1,4 @@
-// Fábio 26/05/2025 - Digitar 3 somar e multiplicar 3 valores
+// Fábio 26/05/2025 - Imprimir posição ímpar
 /*
 - stdio.h: entrada e saída de dadoscl
 - string.h: manipulação de strings
@@ -22,40 +22,32 @@
 #include <unistd.h>
 #include <locale.h>
 
-#define LIMITE 4
-
 //Variáveis
-int a, b, c = 0;
+char nome[50];
+int i, tamanho;
 
+// Imprimir posição ímpar
+void func_imprimir_impar(){
+    printf("Digite um nome: \n");
+    fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
+    nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+    
+    tamanho = strlen(nome);
 
-// Digitar numero e somar e multipicar 3 valores
-void func_digitar_numero(){
-    printf("\nDigite o primeiro numero: ");
-    scanf("%d", &a);
+    for (i = 0; i < tamanho; ++i){
+        if (i%2 != 0){
+            printf("%c", nome[i]);    
+        }
+    }
+    printf("\n");
     getchar();
-
-    printf("\nDigite o segundo numero: ");
-    scanf("%d", &b);
-    getchar();
-
-    printf("\nDigite o terceiro numero: ");
-    scanf("%d", &c);
-    getchar();    
-
-    printf("%d - %d - %d", a, b, c);
-    getchar(); 
-
-    printf("A soma dos tres numeros e: %d \n", a + b + c);
-    printf("A multiplicacao dos tres numeros e: %d", a * b * c);
-    getchar();
-    return;
 }
 
 // argc será 4 (o nome do programa mais os 3 argumentos)
 // argv será um array contendo: 
 //int main(int argc, char const *argv[]){
 int main(int argc, char const *argv[]){
-    func_digitar_numero();
+    func_imprimir_impar();
 
     return 0;
 }
