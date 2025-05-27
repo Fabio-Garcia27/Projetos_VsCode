@@ -30,6 +30,7 @@ char endereco[50];
 char telefone[12];
 int i;
 
+
 // Listar as letras do nome até definição do tamanho LIMITE
 void func_nome_letras(){
     printf("\nDigite o nome: ");
@@ -55,10 +56,28 @@ void func_dados_end(){
     printf("\nDigite o telefone: ");
     fgets(telefone, sizeof(telefone), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
     telefone[strcspn(telefone, "\n")] = 0; // Remover o caractere de nova linha    
+    printf("\n");
+
+    printf("Nome: %s\nEndereco: %s\nTelefone: %s", nome, endereco, telefone); 
+    printf("\n");
+    getchar();
+}
+
+// Listar nome e quantas letras tem o nome
+void func_nome_quant(){
+    int tamanho = 0;
+
+    printf("\nDigite o nome: ");
+    fgets(nome, sizeof(nome), stdin);   // E também dessa sintaxe fgets busca o nome corretamente
+    nome[strcspn(nome, "\n")] = 0; // Remover o caractere de nova linha
+    tamanho = strlen(nome);
 
     printf("\n");
-    printf("Nome: %s\nEndereco: %s\nTelefone: %s", nome, endereco, telefone);    
+    printf("Este nome tem %d letras\n", tamanho);
+    //printf("\n");
+    getchar();
 }
+
 
 // argc será 4 (o nome do programa mais os 3 argumentos)
 // argv será um array contendo: 
@@ -66,6 +85,7 @@ void func_dados_end(){
 int main(int argc, char const *argv[]){
     func_nome_letras();
     func_dados_end();
-    getchar();
+    func_nome_quant();
+
     return 0;
 }
