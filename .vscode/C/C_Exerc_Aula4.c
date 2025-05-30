@@ -67,7 +67,7 @@ int func_calculo(){
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
 
-    func_calculo();
+    func_calculo(); // Função do cálculo geral
 
     return 0;
 }
