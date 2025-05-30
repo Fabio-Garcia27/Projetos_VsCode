@@ -31,13 +31,8 @@
 #include <ctype.h>
 
 // Declarar variáveis 
-float m = 0;
-float med = 0;
-float n1, n2, aux = 0;
-float soma = 0, media_idade = 0;
-int x;
+float soma = 0;
 int cont_cad = 2;
-int y = 0;
 int cont = 0;
 
 // Variável global
@@ -49,6 +44,7 @@ struct cliente cli[2];
 
 // Função cadastro
 int func_cadastro(){
+    int x;
     for (x = 0; x < cont_cad; x++){
         printf("\n\nEntre com o codigo: ");
         scanf("%i", &cli[x].cod);
@@ -67,6 +63,7 @@ int func_cadastro(){
 
 // Função relatório
 int func_relatorio(){
+    int y = 0;
     while (y < cont_cad){
         printf("\n\nCodigo: %i", cli[y].cod);
         printf("\nNome: %s", cli[y].nome);
@@ -78,7 +75,7 @@ int func_relatorio(){
 
 // Função media da idade
 int func_media_idade(){
-    while (cont < 2){
+    while (cont < cont_cad){
         soma += cli[cont].idade;
         getchar();
         cont++;     
