@@ -35,13 +35,20 @@ float m = 0;
 float med = 0;
 float n1, n2, aux = 0;
 
-float calculo (float x1, float x2);
-float media (float s);
+// Função float calcula a média do valor s
+float media (float s){
+    m = s / 2;
+    return (m);
+}
 
-// executar as funções
-int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
+// Função float calcula média de 2 números
+float calculo (float x1, float x2){
+    med = media (x1 + x2);
+    return (med);
+}
 
+// Função do cálculo geral
+int func_calculo(){
     printf("Valor 1: ");
     scanf("%f", &n1);
     getchar();
@@ -56,17 +63,13 @@ int main() {
     return 0;
 }
 
-// Função float calcula a média do valor s
-float media (float s){
-    m = s / 2;
-    return (m);
-}
+// executar as funções
+int main() {
+    setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
 
-// Função float calcula média de 2 números
+    func_calculo();
 
-float calculo (float x1, float x2){
-    med = media (x1 + x2);
-    return (med);
+    return 0;
 }
 
 
