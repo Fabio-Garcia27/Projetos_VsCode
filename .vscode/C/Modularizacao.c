@@ -31,7 +31,7 @@ float aux;
 
 void func_lerValores(float valores[]) {
     for (i = 0; i < TAMANHO_VETOR; i++) {
-        printf("Digite o %i primeiro número: ", i + 1);
+        printf("Digite o %i número: ", i + 1);
         scanf("%f", &valores[i]);
         getchar();
     }
