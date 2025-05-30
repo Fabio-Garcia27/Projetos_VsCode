@@ -37,6 +37,8 @@ float n1, n2, aux = 0;
 float soma = 0, media_idade = 0;
 int x;
 int cont_cad = 2;
+int y = 0;
+int cont = 0;
 
 // Variável global
 struct cliente {
@@ -65,7 +67,6 @@ int func_cadastro(){
 
 // Função relatório
 int func_relatorio(){
-    int y = 0;
     while (y < cont_cad){
         printf("\n\nCodigo: %i", cli[y].cod);
         printf("\nNome: %s", cli[y].nome);
@@ -77,7 +78,6 @@ int func_relatorio(){
 
 // Função media da idade
 int func_media_idade(){
-    int cont = 0;
     while (cont < 2){
         soma += cli[cont].idade;
         getchar();
