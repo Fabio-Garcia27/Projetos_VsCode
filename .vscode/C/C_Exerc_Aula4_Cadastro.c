@@ -63,7 +63,7 @@ int func_cadastro(){
     return 0;
 }
 
-// Função cadastro
+// Função relatório
 int func_relatorio(){
     int y = 0;
     while (y < cont_cad){
@@ -75,7 +75,7 @@ int func_relatorio(){
     }
 }
 
-// Função cadastro
+// Função media da idade
 int func_media_idade(){
     int cont = 0;
     while (cont < 2){
