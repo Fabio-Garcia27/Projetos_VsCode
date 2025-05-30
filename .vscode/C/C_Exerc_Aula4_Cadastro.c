@@ -84,20 +84,20 @@ int func_media_idade(){
         cont++;     
     }
     return (soma / 2);
-    getchar();
 }
 
 // Função do cálculo geral
 int func_calculo(){
     int opcao;
-    float retorno;
+    float retorno_da_media;
     do {
-        puts("\nMenu");
+        printf("\n\n");
+        puts("Menu");
         puts("1. Cadastro");
         puts("2. Relatorio");
         puts("3. Media de idade");
         puts("4. Sair");
-        printf("Escolha uma opcao: ");
+        printf("\nEscolha uma opcao: ");
         if (scanf("%i", &opcao) != 1) {
             puts("Entrada inválida.");
             // Limpar o buffer de entrada
@@ -113,11 +113,11 @@ int func_calculo(){
                func_relatorio();
                 break;
          case 3: 
-               retorno = func_media_idade();
-               printf("Media = %f", retorno);
+               retorno_da_media = func_media_idade();
+               printf("Media = %f", retorno_da_media);
                break;
          case 4:
-               puts ("Fim de execucao");
+               puts ("Fim de execucao...");
                break;
          default: 
                puts ("Valor invalido...");
@@ -126,8 +126,7 @@ int func_calculo(){
     } while (opcao != 4);
     return 0;
 }
-      
-
+     
 // executar as funções
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil.1252"); // Define o locale para Português (Brasil) UTF-8
